@@ -44,22 +44,42 @@ Run before any write. Each failed item means stop and resolve.
 
 ### 3. Probe for the non-current-page bug (mandatory when the target page differs)
 
+Three calls. The first one writes and therefore must NOT throw — a throw would roll the probe back
+and you would be measuring your own rollback instead of the bug. Because nothing comes back from a
+write call, the probe carries a **unique name** and the second call finds it by that name rather
+than by id.
+
 ```js
-// transaction 1: write a probe rect to the target page
+// call 1 — WRITE. Creates the probe and ends naturally. No throw.
 const targetPage = await figma.getNodeByIdAsync("<target-page-id>");
+await targetPage.loadAsync();
 const probe = figma.createFrame();
-probe.name = "__PROBE__"; probe.resize(50, 50); probe.x = -10000; probe.y = -10000;
+probe.name = "__PROBE__20260820T2114";   // unique per run — this is the handle
+probe.resize(50, 50);
+probe.x = -10000; probe.y = -10000;
 targetPage.appendChild(probe);
-throw new Error("PROBE::" + JSON.stringify({ id: probe.id }));
+// nothing else. The function ends here so the write can commit.
 ```
 
 ```js
-// transaction 2 (a separate call): verify
-const p = await figma.getNodeByIdAsync("<id>");
-throw new Error("V::" + JSON.stringify({ exists: !!p }));
+// call 2 — READ-ONLY, a separate call. Find it by name and report through the throw.
+const page = await figma.getNodeByIdAsync("<target-page-id>");
+await page.loadAsync();
+const hit = page.findOne(n => n.name === "__PROBE__20260820T2114");
+throw new Error("PROBE::" + JSON.stringify({ exists: !!hit, id: hit ? hit.id : null }));
 ```
 
-`exists: false` means the bug is active. Use the workaround below.
+```js
+// call 3 — WRITE. Clean up if it survived. No throw.
+const page = await figma.getNodeByIdAsync("<target-page-id>");
+await page.loadAsync();
+const probe = page.findOne(n => n.name === "__PROBE__20260820T2114");
+if (probe) probe.remove();
+```
+
+`exists: false` means the bug is active — and there is nothing to clean up, because the write
+never landed. Use the workaround below. `exists: true` means writes to that page commit; run
+call 3 to remove the probe before you build anything real.
 
 ### 4. Layout plan
 
@@ -248,12 +268,17 @@ A. **Wrapper section** (build phase)
    - The user drags the section onto the target page in seconds; Figma handles the move.
    - Note: moving the section between pages changes the child node ids. Recover by name (below).
 
-B. **Fill-only cross-page writes** (images)
-   - Modifying an existing node's fills DOES persist cross-page. The bug only blocks node
-     *creation*.
+B. **Image-fill cross-page writes**
+   - Image-fill assignment by hash is the confirmed cross-page exception. Treat every other write
+     as suspect until a fresh second-call read verifies it.
    - Pattern: upload the image, capture the `imageHash`, then in a separate call set
      `node.fills = [{ type: "IMAGE", imageHash: HASH, scaleMode: "FILL", opacity }]` on the target
-     node — this works even when the node lives on a non-current page.
+     node — this is the one write that has been probed working when the node lives on a
+     non-current page.
+   - Solid fills, effect styles and corner radius are *plausible* extensions of that one result
+     and have never been probed. Repositioning has been probed and it fails. The property-by-
+     property evidence, with its labels, is in
+     [figma-plugin-api.md](./figma-plugin-api.md#k-property-changes-that-appear-to-persist-cross-page).
 
 ### Rule: one transaction is one write or one read
 

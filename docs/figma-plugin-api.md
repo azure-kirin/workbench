@@ -12,8 +12,11 @@ unchanged.
    - The official Dev Mode MCP server, over your account's OAuth. Always on.
    - A personal-access-token server, which reads the REST API directly. The token expires every
      90 days.
-2. **The plugin write call does not return a value.** The code runs; the result never reaches you.
-   Workaround: `throw new Error("PREFIX::" + JSON.stringify(data))`.
+2. **Plugin calls do not relay return values.** In a read-only call, return data through a thrown
+   error. In a write call, never throw: let it finish, then verify in a separate read-only call.
+   The read-only return channel is `throw new Error("PREFIX::" + JSON.stringify(data))`; the same
+   line inside a call that writes rolls every write back
+   ([§C](#c-a-throw-used-for-status-reporting-inside-a-write-call-rolls-back-everything)).
 3. **Most Dev Mode tools require a selected layer in the Figma desktop app** — variable dumps,
    design context, screenshots. Having the file merely *open* is not enough.
 4. **Setting `selection` programmatically through the plugin API is invisible to the next tool
@@ -35,10 +38,10 @@ token server is **missing**, the token expired — see [token setup](#token-setu
 
 | Job | Tool | Requirement |
 |---|---|---|
-| Dump every variable in a file | the plugin write call + the `throw` trick | file open in the desktop app |
+| Dump every variable in a file | a read-only plugin call + the `throw` trick | file open in the desktop app |
 | Generate code from one frame | design-context tool | layer selected in the desktop app |
 | Screenshot a node | screenshot tool | layer selected |
-| Create or modify design in Figma | the plugin write call | file open |
+| Create or modify design in Figma | a write plugin call — it ends naturally, it never throws | file open |
 | Find a component in the UI kit | design-system search | library published |
 | List libraries attached to a file | libraries tool | ⚠️ often times out on large files |
 | Map code ↔ component | code-connect tool | existing Code Connect setup |
@@ -47,16 +50,22 @@ token server is **missing**, the token expired — see [token setup](#token-setu
 
 ### 1. "Code executed with no return value"
 
-The plugin API runs, but the MCP layer does not relay the return value. Send the data back through
-the **error channel** instead:
+The plugin API runs, but the MCP layer does not relay the return value. **In a read-only call**,
+send the data back through the **error channel** instead:
 
 ```js
-const data = { /* your data */ };
+const data = { /* your data */ };   // read-only call: nothing above this line writes
 throw new Error("FIGMA_DUMP::" + JSON.stringify(data));
 ```
 
 The `FIGMA_DUMP::` prefix is just a marker that makes parsing easy. You receive the full error
 text.
+
+**Read-only calls only.** The identical line inside a call that also writes rolls the whole
+transaction back, so the writes vanish while the report arrives looking like success — the
+four-cycle mistake in
+[§C](#c-a-throw-used-for-status-reporting-inside-a-write-call-rolls-back-everything). A write call
+ends naturally; the report comes from a second, read-only call.
 
 **Limit:** roughly 4–5KB of returned error before it truncates. For bigger dumps, split into
 separate calls per collection.
@@ -66,7 +75,7 @@ separate calls per collection.
 Dev Mode tools read from your desktop session. They need a **selected layer**, even when you pass
 a `nodeId` in the parameters.
 
-If you need data without a selection, use the plugin API and the `throw` trick above.
+If you need data without a selection, use a read-only plugin call and the `throw` trick above.
 
 ### 3. `figma.currentPage = page` does not work
 
@@ -84,7 +93,9 @@ await figma.setCurrentPageAsync(page);
 The next tool call sees whatever is selected in the desktop app.
 
 **Conclusion:** to extract data from a node without the user selecting it, do EVERYTHING inside
-one plugin call and return it through `throw`.
+one plugin call and return it through `throw`. That call has to be read-only. If the same job also
+needs to write, the write goes in its own call, which ends naturally, and the extraction runs
+after it.
 
 ### 5. Instance-swap default values
 
@@ -194,12 +205,15 @@ figma.viewport.scrollAndZoomIntoView([node]);
 
 ⚠️ This moves the user's viewport. Warn them, or ask, before running it.
 
-### D. Run code and get the result back
+### D. Run code and get the result back — read-only calls only
 
 ```js
-// ... async work that builds `result` ...
+// ... async work that builds `result`; this call writes nothing ...
 throw new Error("RESULT::" + JSON.stringify(result));
 ```
+
+If the same code also writes, split it in two: the write call ends naturally, and this pattern
+runs in the read-only call that follows it.
 
 ### E. Hug-by-default frame helpers
 
@@ -313,7 +327,7 @@ accident, revoke it immediately and generate a new one.
 | Error | Cause | Fix |
 |---|---|---|
 | "nothing selected" | Dev Mode tool with no desktop selection | click the node in the desktop app |
-| "Code executed with no return value" | the write call's return does not cross the bridge | `throw new Error("PREFIX::"+JSON.stringify(data))` |
+| "Code executed with no return value" | a plugin call's return does not cross the bridge | in a READ-ONLY call, `throw new Error("PREFIX::"+JSON.stringify(data))`; in a write call, let it end and read the result back in a second call |
 | "figma.currentPage is not supported" | the setter does not work | `await figma.setCurrentPageAsync(page)` |
 | libraries tool times out | large file | skip it, use the design-system search |
 | token server missing from the MCP list | token expired | regenerate (above) |
@@ -476,6 +490,10 @@ function walk(n, depth = 0) {
 throw new Error("INSPECT::" + JSON.stringify({ variants: variantNames, sampleStructure: walk(sample) }));
 ```
 
+This one throws on purpose even though `importComponentSetByKeyAsync` touches the document: the
+rollback discards the import, which is exactly what you want — you came for the shape, not for the
+instance.
+
 If it contains pre-populated imagery or content that does not suit your context: either (a) a
 different variant, (b) override the children, or (c) build a custom one on the `Components` page
 with full design-system hygiene.
@@ -494,7 +512,8 @@ decorative shape.
 
 The earlier rule of thumb — *"the bridge blocks node creation on a non-current page, but property
 changes to existing nodes persist"* — turns out to be too broad. Not all property changes persist.
-The granularity is property by property.
+The granularity is property by property — and the evidence below is exactly two probes, one in
+each direction. Everything else is inference, marked as inference.
 
 ### J. Repositioning on a non-current page silently fails
 
@@ -514,30 +533,41 @@ layout has to change after the drag:
 
 Annoying, but reliable.
 
-### K. Property changes that DO persist cross-page (verified)
+### K. Property changes that appear to persist cross-page
 
-- `node.fills = [{ type: "IMAGE", imageHash, ... }]` — image fill assignment by hash
-- `node.fills = [{ type: "SOLID", color, ... }]` — solid color reassignment (likely; not probed
-  separately)
-- `setEffectStyleIdAsync(...)` and inline `effects` — likely, by analogy
-- `node.cornerRadius = N` — likely; not probed separately
+One line here was probed. The rest are analogies from it, and they are labelled as such — an
+analogy is not evidence.
 
-### L. Property changes that DO NOT persist cross-page (verified)
+- **VERIFIED by probe:** `node.fills = [{ type: "IMAGE", imageHash, ... }]` — image fill
+  assignment by hash. Written in one transaction, read back in the next, still there.
+- **NOT PROBED:** `node.fills = [{ type: "SOLID", color, ... }]` — solid color reassignment.
+  Assumed to behave like the image fill; never tested separately.
+- **NOT PROBED:** `setEffectStyleIdAsync(...)` and inline `effects`. Assumed by analogy with fills.
+- **NOT PROBED:** `node.cornerRadius = N`. Assumed by analogy with fills.
 
-- `node.x = N` / `node.y = N` — geometric repositioning (verified, see §J)
-- `node.resize(w, h)` — likely, by extension; not probed separately
-- Anything that requires recalculating sibling layout on a non-current page
+### L. Property changes that do not persist cross-page
+
+- **VERIFIED by probe:** `node.x = N` / `node.y = N` — geometric repositioning (see §J: 50 →
+  12395 in transaction 1, back to 50 on the read in transaction 2).
+- **NOT PROBED:** `node.resize(w, h)`. Assumed to fail by extension from x/y.
+- **NOT PROBED:** anything that requires recalculating sibling layout on a non-current page.
+  Assumed to fail for the same reason.
 
 ### M. The practical rule
 
-Treat ALL writes to a non-current page as suspect. If you must write cross-page, restrict yourself
-to fills, effects and image hashes — the paint-over class of operations, which need no geometric
-recalculation. Anything that moves nodes: build fresh on `Cover` and drag.
+Image-fill assignment by hash is the confirmed cross-page exception. Treat every other write as
+suspect until a fresh second-call read verifies it.
+
+That is the whole rule. The paint-over class — solid fills, effect styles, corner radius — is a
+plausible extension of the one confirmed case, not a licence; if you rely on any of it, prove it
+in that run with a second-call read, the way §J was proved. Anything that moves nodes: build fresh
+on `Cover` and drag.
 
 The minimum viable mental model:
 
-- **Cross-page CAN do:** paint over an existing node (fills, image hashes, effect styles)
-- **Cross-page CANNOT do:** move or create nodes (x/y, resize, `createFrame`, `appendChild`)
+- **Cross-page confirmed to work:** assign an image fill by hash.
+- **Cross-page confirmed to fail:** move a node (x/y).
+- **Everything else:** unproven in both directions. Verify per run, or build fresh on `Cover`.
 
 ### N. Recovering after the user moves nodes — search by name
 
