@@ -32,9 +32,15 @@ onboarding:
 | ID check | unchecked / checked |
 | Plan | free / plus |
 
-Other projects have different axes. Guest profile views, for instance, has viewer tier (free /
-plus / unchecked), private mode (on / off), and notification preference (push / email / both /
-off).
+Other projects have different axes. Guest profile views, for instance, has plan (free / plus), ID
+status (unchecked / checked), private mode (on / off), and notification preference (push / email /
+both / off).
+
+That example used to read `viewer tier (free / plus / unchecked)` — one axis holding a plan and a
+verification state at once. It is the error this stage exists to prevent: the two facts move
+independently (an unchecked account can be on plus, a checked one can be free), so a single axis
+cannot express them and every table built on it goes wrong downstream. If an axis's values do not
+all answer the *same* question, it is two axes.
 
 ### Enumerate the combinations
 
@@ -77,8 +83,11 @@ Boil the state list down into a table for the spec or the handoff:
 | `[claimed · plus]` | ✅ | ✅ | ✅ | ✅ |
 | … | | | | |
 
-The matrix doubles as a sanity check: every column needs at least one ✅ and at least one ❌,
-otherwise the axis is irrelevant and should be collapsed.
+The matrix doubles as a sanity check, in both directions. Every column needs at least one ✅ and
+at least one ❌, otherwise the axis is irrelevant and should be collapsed. And every axis has to
+*fit* in one column: if its values cannot be read as one yes/no question — because they mix two
+independent facts, the way a `free / plus / unchecked` tier mixes plan with verification — it is
+two axes, and it needs two columns.
 
 ## Stage 2 — Enumerate the flows
 
@@ -193,11 +202,19 @@ set per state, header plus desktop plus mobile web plus mobile app per set.
 
 ## Common pitfalls
 
-### Too many axes
+### Too many combinations
 
-Five or more axes gives you combinatorial explosion — 32-plus states. Most projects have two to
-four meaningful axes. Collapse the ones that are 1:1 (if "verified" and "can message" are derived
-from the same fact, that is one axis, not two).
+Count combinations, not axes: the space is the **product of the values**, so a four-valued axis
+costs as much as two binary ones. Guest profile views above is four axes and already 2 × 2 × 2 × 4
+= 32 combinations; Hearth onboarding is also four axes but 3 × 2 × 2 × 2 = 24, of which nine are
+realistic. Past roughly thirty the enumeration stops being readable.
+
+Most projects settle at two to four meaningful axes. Collapse the ones that are 1:1 — if "verified"
+and "can message" are derived from the same fact, that is one axis, not two. Then cut the
+combinations that never occur in practice, which is usually most of them.
+
+Collapsing is not the only failure. Splitting matters just as much: an axis whose values answer two
+different questions inflates nothing and hides everything, and it will not fit a matrix column.
 
 ### A flow is a DAG, not a line
 
