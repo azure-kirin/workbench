@@ -278,7 +278,7 @@ When the build starts:
 | The design file key for the UI kit | the `CLAUDE.md` table |
 | Token reference (what is that mint border actually called?) | the design-system token skill |
 | How to build a component in the design tool without errors | the design-system build skill |
-| Plugin-API gotchas (the write call does not return a value) | [figma-plugin-api.md](./figma-plugin-api.md) |
+| Plugin-API gotchas (a plugin call does not relay its return value) | [figma-plugin-api.md](./figma-plugin-api.md) |
 | How to run an overnight task with contract phases | [overnight-runs.md](./overnight-runs.md) |
 | Whether the design-tool access token is still valid | `memory/reference_figma_credentials.md` |
 

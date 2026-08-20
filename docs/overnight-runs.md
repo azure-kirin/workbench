@@ -612,6 +612,12 @@ import it by key and place an instance. If the variant does not fit, either use 
 variant, override its properties, or build a NEW component on the `Components` page as a last
 resort, with full hygiene.
 
+A key is necessary, not sufficient: components that live inside a feature file also have keys, and
+importing one of those from another file fails with `Component with key X not found`. Check that
+the search result carries a real library name before you plan around it — see
+[figma-plugin-api.md](./figma-plugin-api.md#8-local-only-named-components-are-not-published-library-assets).
+That failure is a Stream C finding, not a licence to hand-draw the shape.
+
 The temptation is "I'll quick-build a custom version, faster than figuring out the variants." It
 always costs more later: it gets spotted, you redo it, and the link is gone.
 
