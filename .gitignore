@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+.pnpm-store/
+
+# builds
+dist/
+build/
+*.tsbuildinfo
+
+# test + coverage
+coverage/
+
+# caches
+.cache/
+.turbo/
+.eslintcache
+
+# env
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# local scratch — pull-request bodies, notes; never published
+.pr/
+
+# editors + os
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
