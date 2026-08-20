@@ -691,7 +691,7 @@ Anything unticked either gets built now or gets documented as a skip. There is n
 
 ### G14 — Q0: surface interpretation ambiguity BEFORE listing decisions
 
-A real scope line from the founder: *"reviews, saves, and messages (host or venue)"*. That phrase
+A scope line, exactly as it arrives from the founder: *"reviews, saves, and messages (host or venue)"*. That phrase
 has at least three valid parses:
 
 - (a) messages target a host OR a venue, and reviews/saves are about dinners
