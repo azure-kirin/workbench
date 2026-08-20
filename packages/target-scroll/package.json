@@ -1,0 +1,69 @@
+{
+  "name": "target-scroll",
+  "version": "0.1.0",
+  "description": "Hand-animated scroll to an element that survives overflow-x:clip, repeat activation on the same target, a suspended requestAnimationFrame, and a user who scrolls back.",
+  "keywords": [
+    "scroll",
+    "scroll-to",
+    "smooth-scroll",
+    "scrollintoview",
+    "anchor",
+    "hash-link",
+    "in-page-navigation",
+    "accessibility",
+    "focus-management",
+    "prefers-reduced-motion",
+    "webview",
+    "react"
+  ],
+  "license": "MIT",
+  "author": "Mariia Bubley",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
