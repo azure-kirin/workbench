@@ -91,6 +91,9 @@ why the policy lives on the folder and not on the file.
 
 The semantic name describes the visual. A numeric suffix only when the series is intentional.
 
+In an audio-bearing folder the roles collapse: `<name>.mp4` is the delivered master, not a
+fallback, and there is no `.webm` and no poster to sit beside it.
+
 ## Tooling
 
 Once per machine:
@@ -219,9 +222,11 @@ rm /tmp/poster_tmp.png
 
 ## Reduced motion
 
-Mandatory for every motion asset, whatever the use case. Users with vestibular sensitivity must
-not be served looping motion. The poster is the fallback surface — which is why it is part of the
-asset bundle rather than an optional extra.
+Mandatory for every motion asset **you embed**. Users with vestibular sensitivity must not be
+served looping motion. The poster is the fallback surface — which is why it is part of the asset
+bundle rather than an optional extra. When the destination is a platform rather than a page, the
+platform owns playback and the poster does not exist; what you still owe that viewer is the second
+paragraph.
 
 If the asset is content-bearing rather than decorative, reduced-motion users still need the
 information: provide a captioned static alternative or a text equivalent. Decide that per use case,
