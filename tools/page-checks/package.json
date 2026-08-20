@@ -1,0 +1,60 @@
+{
+  "name": "page-checks",
+  "version": "0.1.0",
+  "description": "Four build-time checks against a built site: swallowed whitespace after inline elements, WCAG contrast for every colour pair a page actually renders, real horizontal scroll, console errors, and internal links and anchors that resolve.",
+  "keywords": [
+    "accessibility",
+    "wcag",
+    "contrast",
+    "link-checker",
+    "broken-links",
+    "anchors",
+    "overflow",
+    "responsive",
+    "jsx",
+    "whitespace",
+    "ci",
+    "playwright",
+    "smoke-test"
+  ],
+  "license": "MIT",
+  "author": "Mariia Bubley",
+  "type": "module",
+  "bin": {
+    "page-checks": "./dist/cli.js"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "playwright": ">=1.40"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "jsdom": "^25.0.1",
+    "playwright": "^1.60.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}
