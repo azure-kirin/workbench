@@ -19,8 +19,9 @@ procedure stops at the asset boundary.
    `assets/motion/<use-case>/`, mirrored by `assets/images/<use-case>/` for static. The use case is
    the sub-folder. Add a use case when the first asset for it arrives, never preemptively.
 2. **Audio policy is encoded by the folder, not the filename.** `motion/backgrounds/` is silent,
-   always. An audio-bearing category defines its own policy — including captions — at the moment
-   the folder is created.
+   always. `motion/promo/` keeps its audio, because the deliverable is a social post. An
+   audio-bearing category defines its own policy — including captions — at the moment the folder is
+   created.
 3. **Always ship dual format plus a poster.** `.webm` (VP9, primary, roughly 50% smaller) + `.mp4`
    (H.264 fallback) + `.poster.webp` (instant render, and the reduced-motion fallback). A browser
    downloads one video format, not both.
@@ -40,11 +41,14 @@ assets/
 ├── images/                            STATIC medium
 │   └── backgrounds/
 └── motion/                            MOTION medium
-    └── backgrounds/                   silent, looped video backgrounds
-        ├── ambient-gradient-waves-1.source.mp4    (raw, archival)
-        ├── ambient-gradient-waves-1.webm          (web primary)
-        ├── ambient-gradient-waves-1.mp4           (web fallback)
-        └── ambient-gradient-waves-1.poster.webp   (first frame)
+    ├── backgrounds/                   silent, looped video backgrounds
+    │   ├── ambient-gradient-waves-1.source.mp4    (raw, archival)
+    │   ├── ambient-gradient-waves-1.webm          (web primary)
+    │   ├── ambient-gradient-waves-1.mp4           (web fallback)
+    │   └── ambient-gradient-waves-1.poster.webp   (first frame)
+    └── promo/                         audio-bearing, social destination
+        ├── supper-club-launch.source.mp4          (raw, archival)
+        └── supper-club-launch.mp4                 (delivered WITH audio)
 ```
 
 **Adding a use case** (say `motion/explainers/`):
@@ -59,10 +63,20 @@ assets/
 | Folder | Policy | Why |
 |---|---|---|
 | `motion/backgrounds/` | **Silent always.** Stripped in conversion (`-an`). | iOS blocks autoplay with sound. Background audio is a UX ambush. A consistent, autoplay-friendly contract. |
+| `motion/promo/` | **Audio-bearing.** Keep the audio in the deliverable. | The destination is a social post or story, where the sound is part of the asset and the platform gives the viewer a mute control. A web embed, if one is ever needed, takes a separate silent re-encode (`-an`) per the backgrounds recipe. |
 | `motion/explainers/` (future) | Audio-bearing. Procedure to be defined. | Needs encode params, caption and transcript handling, and an accessibility contract before the first asset. |
 | `motion/accents/` (future) | Likely silent. Decide at creation. | Same autoplay constraint. |
 
 Names carry no audio tag — no `.silent.mp4` suffix. The folder is the policy.
+
+**`promo/` is the counterexample that keeps the rule honest.** Everything else in this document
+assumes a browser and therefore assumes silence, and it is easy to read "strip the audio" as a law
+of motion assets. It is not: it is what the *destination* demands. A promo cut for a feed keeps
+its audio, ships as one `.mp4` master to whatever the platform wants, and needs neither a webm nor
+a poster — no `<video>` tag is involved. The moment that same clip is asked to sit on a page, it
+stops being a promo asset and gets re-encoded from the source under the backgrounds recipe:
+silent, dual-format, with a poster. One source, two destinations, two policies — which is exactly
+why the policy lives on the folder and not on the file.
 
 ## File naming
 
@@ -97,7 +111,11 @@ encoder.
 
 ## Conversion — backgrounds (silent, looped)
 
-Run from `motion/backgrounds/`. Replace `<name>` with the semantic name.
+Run from `motion/backgrounds/`. Replace `<name>` with the semantic name. These three recipes are
+the *browser* pipeline: they assume silence and a `<video>` tag. An audio-bearing folder like
+`motion/promo/` does not run them — it keeps the audio and delivers the master the platform asks
+for. Do not reach for `-an` because it is in the recipe; reach for it because the destination
+folder says silent.
 
 ### 1. webm / VP9 — web primary
 
@@ -224,6 +242,9 @@ The same `<name>` across repos means the same canonical asset, traceable back to
 
 ## Anti-patterns
 
+Browser delivery, all of them. An audio-bearing folder answers to its own policy — shipping a
+single `.mp4` with sound and no poster is correct there, and wrong here.
+
 | ❌ | Why it breaks | ✅ Instead |
 |---|---|---|
 | Ship the raw 2MB+ source to the browser | Slow LCP, heavy on mobile data | Convert with the recipes above |
@@ -242,6 +263,10 @@ The same `<name>` across repos means the same canonical asset, traceable back to
 - [ ] Source named semantically, with the `.source.mp4` suffix
 - [ ] Source in the right medium folder and use-case sub-folder
 - [ ] That folder's audio policy is defined
+
+Everything below applies to a **browser-bound** asset. For an audio-bearing folder, stop here and
+follow that folder's own policy — a `promo/` master has no webm, no poster and no `<video>`.
+
 - [ ] `ffmpeg -version` and `cwebp -version` both succeed
 - [ ] Three outputs generated: `.webm`, `.mp4`, `.poster.webp`
 - [ ] All four files share the same `<name>` prefix
