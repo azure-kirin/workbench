@@ -61,7 +61,7 @@ v2. The file will.
 |---|---|---|
 | **vault** | human memory — decisions, specs, references, notes | `vault/` (Obsidian + a private git repo) |
 | **`CLAUDE.md`** | project context for the agent, auto-loaded at session start | `<repo-root>/CLAUDE.md` (44 lines) |
-| **`memory/`** | continuity between sessions — feedback, preferences, recurring pitfalls | `~/.claude/projects/<project>/memory/` |
+| **`memory/`** | continuity between sessions of one project — feedback, preferences, recurring pitfalls | `~/.claude/projects/<project>/memory/` |
 | **skills + MCP** | codified workflows + integrations with external services | `~/.claude/skills/`, MCP servers in your client config |
 
 ### Vault
@@ -120,12 +120,21 @@ of their parents (a general workspace file, plus one inside the design system re
 
 ### `memory/`
 
-**What:** persistent feedback, preferences and rules that must survive **across projects and
-sessions**. Not notes for a human — instructions to the agent about how to work and how not to.
+**What:** persistent feedback, preferences and rules that must survive **across sessions within
+one project store**. Not notes for a human — instructions to the agent about how to work and how
+not to.
 
 **Where it lives:** `~/.claude/projects/<project-id>/memory/`. At the root, `MEMORY.md` — the
 index, not the content — with one file per topic alongside it. Each file carries frontmatter with
 `name / description / type` (`user / feedback / project / reference`).
+
+> **The store is per project path, and it does not travel.** A session started in the component
+> library sees a different store from a session started at the workspace root — same machine, same
+> person, different memory. So a preference you want everywhere has to be saved in each store that
+> needs it; nothing synchronises them. The always-on layer that *is* global is `~/.claude/CLAUDE.md`
+> (see [harness-audit.md](./harness-audit.md#rule-0--enumerate-the-whole-surface-first), which
+> enumerates both). Assuming one store speaks for all of them is how a "rule I already saved" turns
+> out to be missing in the next repo.
 
 **What goes in:**
 
@@ -372,9 +381,13 @@ feels:
 
 ### 1. Duplicating context between memory and `CLAUDE.md`
 
-`CLAUDE.md` is project-specific: where the design system lives, which file keys, which guides.
-Memory is cross-project: your preferences and rules, the patterns you never want to see again.
-Mix them and you get drift, plus a fight over which one is the source of truth.
+Both layers are scoped to the project, so the split is not "project versus everywhere" — it is
+what each layer is *for*. `CLAUDE.md` holds the durable facts of the repo: where the design system
+lives, which file keys, which guides to read first. It sits in the tree, and anyone who opens the
+repo gets it. Memory holds what accumulated from being corrected: your preferences, the patterns
+you never want to see again, the reasoning behind a decision. It sits in that project's store, and
+only sessions of that project see it. Mix them and you get drift, plus a fight over which one is
+the source of truth.
 
 ### 2. Writing `CLAUDE.md` like a README
 
