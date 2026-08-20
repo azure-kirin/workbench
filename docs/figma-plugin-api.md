@@ -184,7 +184,7 @@ If the payload truncates, split it into several calls filtered by `col.name`.
 ### C. Navigate to a specific node
 
 ```js
-const node = await figma.getNodeByIdAsync("2300:896");
+const node = await figma.getNodeByIdAsync("742:1188");
 let page = node;
 while (page && page.type !== "PAGE") page = page.parent;
 await figma.setCurrentPageAsync(page);

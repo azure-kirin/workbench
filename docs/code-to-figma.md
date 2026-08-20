@@ -46,7 +46,7 @@ Run before any write. Each failed item means stop and resolve.
 
 ```js
 // transaction 1: write a probe rect to the target page
-const targetPage = /* ... */;
+const targetPage = await figma.getNodeByIdAsync("<target-page-id>");
 const probe = figma.createFrame();
 probe.name = "__PROBE__"; probe.resize(50, 50); probe.x = -10000; probe.y = -10000;
 targetPage.appendChild(probe);
