@@ -420,8 +420,9 @@ locked or the alignment process upstream of it is broken.
 
 ### 7. Screenshots and big dumps pasted into chat
 
-The agent sees the entire conversation as its context window. A 200KB screenshot is roughly 50K
-tokens. A large PDF or JSON dump is more. Everything goes to disk, to the design tool, or to code,
+The agent sees the entire conversation as its context window. An image costs by its dimensions,
+not by its file size — resizing it down cuts the cost, recompressing it does not. A large PDF or
+JSON dump costs by its length, and is usually far more. Everything goes to disk, to the design tool, or to code,
 and only the path goes into the chat. Otherwise the window burns for nothing and the agent starts
 "forgetting" what was said at the beginning.
 

@@ -237,9 +237,15 @@ If a page already exists from a previous run, append below — never overwrite.
 `Overnight handoff — <Area Name> — <YYYY-MM-DD>`. This page is the morning artifact. Everything
 needed to review what happened lives there.
 
-### Vault — read-only
+### Vault — read-only overnight
 
-Read everything you need. Write nothing. Vault edits are decisions; decisions wait.
+Read everything you need. Write nothing. Vault edits are decisions, and decisions wait for someone
+awake to make them.
+
+This is a rule about the *unattended* run, not about the vault. A supervised session writes into it
+freely — that is where the report at the end of the working loop goes
+([the context system](./context-system.md#the-full-loop)). The night run's own output has a
+destination of its own: the handoff page above.
 
 ## Drafts use the existing design system
 
