@@ -12,7 +12,19 @@ the list of conditions under which the obvious implementation quietly does
 nothing. This repository is a place to write those lists down and build against
 them.
 
+The same is true one level up. A coding agent starts every session knowing
+nothing — not who decides what, not where the spec lives, not that the approach
+it is about to take was tried and rejected last month — and the parts you forget
+to tell it are the parts that come back wrong.
+
 ## What's here
+
+**[`docs/`](./docs)** — the method. A four-layer context system (vault,
+`CLAUDE.md`, memory, skills) and the protocols that run on top of it: leaving an
+agent working unattended overnight, turning a locked spec into an enumerated
+state space, driving a design tool through its plugin API, porting a prototype
+in either direction, auditing the whole harness when a new model lands. Most of
+it reads as a failure log, because that is how it was learned.
 
 **[`packages/viewport-reveal`](./packages/viewport-reveal)** — content fades and
 rises as it comes into view. Nothing is hidden in the markup: the hidden state
