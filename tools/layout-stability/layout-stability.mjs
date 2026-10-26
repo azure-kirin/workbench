@@ -39,8 +39,11 @@ import { resolve } from "node:path";
 // tool's own resolution for the linked/installed case.
 const { chromium } = await (async () => {
   const req = createRequire(pathToFileURL(resolve(process.cwd(), "package.json")).href);
-  try { return import(pathToFileURL(req.resolve("playwright")).href); }
-  catch { return import("playwright"); }
+  let mod;
+  try { mod = await import(pathToFileURL(req.resolve("playwright")).href); }
+  catch { mod = await import("playwright"); }
+  // playwright is CommonJS: under a file-URL import its exports sit on `default`.
+  return mod.chromium ? mod : mod.default;
 })();
 
 const TOLERANCE = 0.5; // px — sub-pixel rendering noise is not jitter
