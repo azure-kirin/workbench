@@ -30,9 +30,18 @@
  * Exit 1 when any violation is found — wire into CI.
  */
 
+import { createRequire } from "node:module";
 import { pathToFileURL } from "node:url";
 import { resolve } from "node:path";
-import { chromium } from "playwright";
+
+// Playwright is a peer: resolve it from the project being audited (cwd), so the
+// tool runs from any checkout without carrying its own copy; fall back to the
+// tool's own resolution for the linked/installed case.
+const { chromium } = await (async () => {
+  const req = createRequire(pathToFileURL(resolve(process.cwd(), "package.json")).href);
+  try { return import(pathToFileURL(req.resolve("playwright")).href); }
+  catch { return import("playwright"); }
+})();
 
 const TOLERANCE = 0.5; // px — sub-pixel rendering noise is not jitter
 const fmt = (n) => (Math.round(n * 10) / 10).toString();

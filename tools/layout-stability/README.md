@@ -22,13 +22,16 @@ put is printed as per-axis px deltas. Exit code 1 on any violation, so it gates 
 
 ## Usage
 
+Run it from the project you are auditing — `playwright` is resolved from that project's
+`node_modules` (peer dependency; Chromium must be installed there).
+
 ```sh
-npx layout-stability                                   # every audit in ./layout-audits.mjs
-npx layout-stability chats-requests                    # one audit
-npx layout-stability --config audits/layout.mjs --base-url http://localhost:6008
+node ~/workbench/tools/layout-stability/layout-stability.mjs                 # every audit in ./layout-audits.mjs
+node ~/workbench/tools/layout-stability/layout-stability.mjs chats-requests  # one audit
+node ~/workbench/tools/layout-stability/layout-stability.mjs --config scripts/layout-audits.mjs --base-url http://localhost:6008
 ```
 
-Peer dependency: `playwright` (with Chromium installed).
+Installed as a dev dependency (`file:` or from a registry) it is also available as `npx layout-stability`.
 
 ## Registry
 
