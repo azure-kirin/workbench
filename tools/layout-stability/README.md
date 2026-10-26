@@ -76,4 +76,8 @@ computed style. Write your own checks as `{ name, measure(boxes, ctx), ok(value)
 - **`during` violation** — the action moved chrome it should not touch.
 - **`after restore` violation** — state leaked: the screen did not return to baseline after undoing
   the action (a collapsed header that stayed collapsed).
+- **`audit aborted`** — the audit could not run and counts as one failure. `story "…" not in
+  …/index.json` means the story id is absent from this Storybook (checked up front when the server
+  has a story index); `no anchors found at baseline` means nothing measurable rendered (missing
+  story, error page). Other reasons (a stale selector in an action) print the Playwright error.
 - Tolerance is 0.5px: sub-pixel rendering noise is not jitter.

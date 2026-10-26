@@ -116,6 +116,17 @@ function resolveUrl(audit, baseUrl) {
   return /^https?:/.test(audit.url) ? audit.url : `${baseUrl}${audit.url.startsWith("/") ? "" : "/"}${audit.url}`;
 }
 
+// Storybook 7/8 story index, fetched once per run. Best-effort: any failure or an
+// unfamiliar shape yields null and the audit falls through to page.goto.
+let storyIndex;
+function loadStoryIndex(baseUrl) {
+  storyIndex ??= fetch(`${baseUrl}/index.json`, { signal: AbortSignal.timeout(5000) })
+    .then((res) => (res.ok ? res.json() : null))
+    .then((json) => (json?.entries && typeof json.entries === "object" ? json.entries : null))
+    .catch(() => null);
+  return storyIndex;
+}
+
 function resolveFrameChecks(audit, registry) {
   const fc = audit.frameChecks ?? registry.frameChecks ?? [];
   return typeof fc === "string" ? PRESETS[fc] ?? [] : fc;
@@ -124,7 +135,19 @@ function resolveFrameChecks(audit, registry) {
 export async function runAudit(name, audit, baseUrl, registry = {}) {
   const url = resolveUrl(audit, baseUrl);
   console.log(`\n━━ ${name} (${url})`);
+  if (audit.story) {
+    const entries = await loadStoryIndex(baseUrl);
+    if (entries && !(audit.story in entries)) throw new Error(`story "${audit.story}" not in ${baseUrl}/index.json`);
+  }
   const browser = await chromium.launch();
+  try {
+    return await measureAudit(browser, audit, url, registry);
+  } finally {
+    await browser.close(); // also on abort — a thrown action must not leak Chromium
+  }
+}
+
+async function measureAudit(browser, audit, url, registry) {
   const page = await browser.newPage({ viewport: audit.viewport ?? { width: 480, height: 950 } });
   page.setDefaultTimeout(audit.timeout ?? 8000);
   await page.goto(url, { waitUntil: "networkidle" });
@@ -134,6 +157,10 @@ export async function runAudit(name, audit, baseUrl, registry = {}) {
 
   let failures = 0;
   const baseline = await measureAnchors(page, audit.anchors);
+  // Nothing rendered (story missing, error page): every action would just time out.
+  if (Object.keys(baseline).length && Object.values(baseline).every((box) => !box)) {
+    throw new Error("no anchors found at baseline (story missing on this server, or page did not render)");
+  }
   const ctx = {
     frameBorderTop: baseline.frame
       ? await page.locator(audit.anchors.frame).first().evaluate((el) => Number.parseFloat(getComputedStyle(el).borderTopWidth))
@@ -173,7 +200,6 @@ export async function runAudit(name, audit, baseUrl, registry = {}) {
     if (!duringViolations.length && !afterViolations.length) console.log("    ✓ stable");
   }
 
-  await browser.close();
   return failures;
 }
 
