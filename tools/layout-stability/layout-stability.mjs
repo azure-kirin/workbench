@@ -16,6 +16,7 @@
  *     url?: string,            // absolute, or relative to --base-url
  *     story?: string,          // Storybook story id → <base-url>/iframe.html?id=…
  *     viewport?: { width, height },
+ *     timeout?: number,        // ms per locator action, default 8000
  *     anchors: { <name>: <Playwright locator string> },   // first match wins
  *     actions: [{ name, perform(page), restore(page), mayChange?: [], mayHide?: [] }],
  *     frameChecks?: FrameCheck[] | "ios"   // override the registry default
@@ -125,6 +126,7 @@ export async function runAudit(name, audit, baseUrl, registry = {}) {
   console.log(`\n━━ ${name} (${url})`);
   const browser = await chromium.launch();
   const page = await browser.newPage({ viewport: audit.viewport ?? { width: 480, height: 950 } });
+  page.setDefaultTimeout(audit.timeout ?? 8000);
   await page.goto(url, { waitUntil: "networkidle" });
   // Kill transitions/animations: we measure settled layout per state, not animation frames.
   await page.addStyleTag({ content: "*, *::before, *::after { transition: none !important; animation: none !important; }" });
@@ -133,7 +135,7 @@ export async function runAudit(name, audit, baseUrl, registry = {}) {
   let failures = 0;
   const baseline = await measureAnchors(page, audit.anchors);
   const ctx = {
-    frameBorderTop: audit.anchors.frame
+    frameBorderTop: baseline.frame
       ? await page.locator(audit.anchors.frame).first().evaluate((el) => Number.parseFloat(getComputedStyle(el).borderTopWidth))
       : 0,
   };
@@ -193,7 +195,14 @@ if (isMain) {
   for (const auditName of selected) {
     const audit = audits[auditName];
     if (!audit) { console.error(`Unknown audit "${auditName}". Known: ${Object.keys(audits).join(", ")}`); process.exit(2); }
-    total += await runAudit(auditName, audit, baseUrl, registry);
+    try {
+      total += await runAudit(auditName, audit, baseUrl, registry);
+    } catch (err) {
+      // One broken audit (stale selector, story renamed, action timed out) must not
+      // hide the results of the others — count it as a failure and move on.
+      console.log(`    ✗ audit aborted — ${err.message.split("\n")[0]}`);
+      total += 1;
+    }
   }
   console.log(`\n${total === 0 ? "✓ no layout-stability violations" : `✗ ${total} violation(s)`}`);
   process.exit(total === 0 ? 0 : 1);
