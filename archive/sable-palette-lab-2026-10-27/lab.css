@@ -1,0 +1,19 @@
+/*
+ * Palette Lab stylesheet. sandbox/ is git-ignored, and Tailwind's automatic
+ * source detection skips ignored files — so this file generates the utilities
+ * the lab's own markup uses, against Sable's theme (globals.css), and adds the
+ * set scopes. Storybook's own stylesheet (styles.entry.css) is untouched.
+ */
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/utilities.css" layer(utilities) source(none);
+@import "../../src/globals.css";
+@import "./sets.css";
+
+@source "./";
+
+/* The lab page's own neutrals and the stage radius (Sable's theme resets both). */
+@theme {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --radius-2xl: 20px;
+}

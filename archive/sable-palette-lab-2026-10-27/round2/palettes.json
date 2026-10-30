@@ -1,0 +1,4592 @@
+[
+  {
+    "id": "safelight",
+    "name": "Safelight",
+    "temperature": "warm",
+    "source": "A darkroom at work — the amber safelight, sepia and selenium toner, the fixer tray",
+    "rationale": "Everything lit by one amber lamp; prints toning from sepia to selenium plum. Warmth from light, not from cream and terracotta.",
+    "trend": "The warm darks of 2026 (Silhouette, Mocha Mousse) — as light, not paint",
+    "accentName": "Safelight amber",
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f6f3f1",
+          "oklch": "oklch(0.965 0.004 45)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e9e5e3",
+          "oklch": "oklch(0.925 0.005 45)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d7d1cf",
+          "oklch": "oklch(0.865 0.007 45)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#c0b9b6",
+          "oklch": "oklch(0.79 0.009 45)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#a69e9a",
+          "oklch": "oklch(0.705 0.011 45)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#7b726e",
+          "oklch": "oklch(0.56 0.013 45)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#615753",
+          "oklch": "oklch(0.465 0.014 45)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#463e3a",
+          "oklch": "oklch(0.37 0.014 45)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#2f2723",
+          "oklch": "oklch(0.28 0.014 45)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#261e1b",
+          "oklch": "oklch(0.245 0.014 45)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#1e1713",
+          "oklch": "oklch(0.21 0.013 45)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#140e0b",
+          "oklch": "oklch(0.17 0.012 45)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#fff3e7",
+          "oklch": "oklch(0.97 0.02 66)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#ffe2c6",
+          "oklch": "oklch(0.93 0.049 66.9)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#fcca94",
+          "oklch": "oklch(0.87 0.09 67.8)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#f6b160",
+          "oklch": "oklch(0.81 0.127 68.7)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#e89928",
+          "oklch": "oklch(0.745 0.15 69.6)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#c67f02",
+          "oklch": "oklch(0.655 0.141 70.4)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#a16802",
+          "oklch": "oklch(0.565 0.121 71.3)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#7d5001",
+          "oklch": "oklch(0.47 0.1 72.2)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#583801",
+          "oklch": "oklch(0.37 0.078 73.1)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#3a2400",
+          "oklch": "oklch(0.28 0.059 74)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#a9d7bd",
+          "oklch": "oklch(0.84 0.06 160)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#83c1a0",
+          "oklch": "oklch(0.76 0.08 160)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#66a383",
+          "oklch": "oklch(0.665 0.08 160)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#4e8769",
+          "oklch": "oklch(0.575 0.076 160)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#3b6951",
+          "oklch": "oklch(0.48 0.064 160)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#294938",
+          "oklch": "oklch(0.375 0.048 160)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#e1c885",
+          "oklch": "oklch(0.84 0.09 90)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#cfad4e",
+          "oklch": "oklch(0.76 0.12 90)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#b0902c",
+          "oklch": "oklch(0.665 0.12 90)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#937510",
+          "oklch": "oklch(0.575 0.113 90)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#735a06",
+          "oklch": "oklch(0.48 0.096 90)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#503f08",
+          "oklch": "oklch(0.375 0.072 90)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb5af",
+          "oklch": "oklch(0.84 0.087 24)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#fe8b85",
+          "oklch": "oklch(0.76 0.14 24)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#dc6d69",
+          "oklch": "oklch(0.665 0.14 24)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#bb5451",
+          "oklch": "oklch(0.575 0.133 24)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#92403e",
+          "oklch": "oklch(0.48 0.112 24)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#662d2b",
+          "oklch": "oklch(0.375 0.084 24)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#add0ea",
+          "oklch": "oklch(0.84 0.052 240)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#88b8da",
+          "oklch": "oklch(0.76 0.07 240)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#6c9abb",
+          "oklch": "oklch(0.665 0.07 240)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#547e9c",
+          "oklch": "oklch(0.575 0.066 240)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#3f627a",
+          "oklch": "oklch(0.48 0.056 240)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#2c4455",
+          "oklch": "oklch(0.375 0.042 240)"
+        }
+      ]
+    },
+    "scrim": {
+      "token": "--scrim-70",
+      "hex": "#140e0bb3",
+      "oklch": "oklch(0.17 0.012 45 / 0.7)"
+    },
+    "aura": {
+      "id": "main",
+      "name": "Safelight",
+      "colours": [
+        {
+          "slot": 1,
+          "name": "Safelight red",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-1-300",
+              "hex": "#ffb5ac",
+              "oklch": "oklch(0.84 0.088 27)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-1-500",
+              "hex": "#f27166",
+              "oklch": "oklch(0.7 0.16 27)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-1-700",
+              "hex": "#9f4039",
+              "oklch": "oklch(0.5 0.128 27)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-1-warm",
+              "hex": "#e87f25",
+              "oklch": "oklch(0.7 0.16 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-1-cool",
+              "hex": "#e371b2",
+              "oklch": "oklch(0.7 0.16 347)"
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "name": "Amber",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-2-300",
+              "hex": "#f1c189",
+              "oklch": "oklch(0.84 0.09 70)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-2-500",
+              "hex": "#d98b09",
+              "oklch": "oklch(0.7 0.15 70)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-2-700",
+              "hex": "#8a5601",
+              "oklch": "oklch(0.5 0.108 70)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-2-warm",
+              "hex": "#e48233",
+              "oklch": "oklch(0.7 0.15 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-2-cool",
+              "hex": "#a5a50e",
+              "oklch": "oklch(0.7 0.15 110)"
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "name": "Selenium plum",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-3-300",
+              "hex": "#e6bae1",
+              "oklch": "oklch(0.84 0.072 330)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-3-500",
+              "hex": "#c882c2",
+              "oklch": "oklch(0.7 0.12 330)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-3-700",
+              "hex": "#824e7d",
+              "oklch": "oklch(0.5 0.096 330)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-3-warm",
+              "hex": "#de7d8d",
+              "oklch": "oklch(0.7 0.12 10)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-3-cool",
+              "hex": "#9e91e4",
+              "oklch": "oklch(0.7 0.12 290)"
+            }
+          ]
+        }
+      ]
+    },
+    "auraAlt": [
+      {
+        "id": "alt-a",
+        "name": "Sepia toner",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Sepia",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-1-300",
+                "hex": "#e4c3ad",
+                "oklch": "oklch(0.84 0.048 55)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-1-500",
+                "hex": "#c6916e",
+                "oklch": "oklch(0.7 0.08 55)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-1-700",
+                "hex": "#80593f",
+                "oklch": "oklch(0.5 0.064 55)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-1-warm",
+                "hex": "#c6916e",
+                "oklch": "oklch(0.7 0.08 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-1-cool",
+                "hex": "#cb8a8e",
+                "oklch": "oklch(0.7 0.08 15)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Toned rose",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-2-300",
+                "hex": "#ebbdc1",
+                "oklch": "oklch(0.84 0.054 12)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-2-500",
+                "hex": "#d0878f",
+                "oklch": "oklch(0.7 0.09 12)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-2-700",
+                "hex": "#875258",
+                "oklch": "oklch(0.5 0.072 12)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-2-warm",
+                "hex": "#cb8f6a",
+                "oklch": "oklch(0.7 0.09 52)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-2-cool",
+                "hex": "#c08ab7",
+                "oklch": "oklch(0.7 0.09 332)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Olive shadow",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-3-300",
+                "hex": "#cccdae",
+                "oklch": "oklch(0.84 0.042 110)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-3-500",
+                "hex": "#a1a36f",
+                "oklch": "oklch(0.7 0.07 110)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-3-700",
+                "hex": "#656640",
+                "oklch": "oklch(0.5 0.056 110)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-3-warm",
+                "hex": "#bb976e",
+                "oklch": "oklch(0.7 0.07 70)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-3-cool",
+                "hex": "#7fab88",
+                "oklch": "oklch(0.7 0.07 150)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alt-b",
+        "name": "Cyanotype proof",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Prussian blue",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-1-300",
+                "hex": "#a9cefd",
+                "oklch": "oklch(0.84 0.078 255)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-1-500",
+                "hex": "#64a1ee",
+                "oklch": "oklch(0.7 0.13 255)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-1-700",
+                "hex": "#37649d",
+                "oklch": "oklch(0.5 0.104 255)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-1-warm",
+                "hex": "#a58de6",
+                "oklch": "oklch(0.7 0.13 295)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-1-cool",
+                "hex": "#37aae3",
+                "oklch": "oklch(0.7 0.13 235)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Tea tone",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-2-300",
+                "hex": "#e9c1ac",
+                "oklch": "oklch(0.84 0.054 50)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-2-500",
+                "hex": "#cc8e6b",
+                "oklch": "oklch(0.7 0.09 50)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-2-700",
+                "hex": "#84573d",
+                "oklch": "oklch(0.5 0.072 50)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-2-warm",
+                "hex": "#ca8f67",
+                "oklch": "oklch(0.7 0.09 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-2-cool",
+                "hex": "#cf8792",
+                "oklch": "oklch(0.7 0.09 10)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Bleach yellow",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-3-300",
+                "hex": "#d6cb9f",
+                "oklch": "oklch(0.84 0.06 95)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-3-500",
+                "hex": "#b29e51",
+                "oklch": "oklch(0.7 0.1 95)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-3-700",
+                "hex": "#726328",
+                "oklch": "oklch(0.5 0.08 95)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-3-warm",
+                "hex": "#cf8d60",
+                "oklch": "oklch(0.7 0.1 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-3-cool",
+                "hex": "#83ad6d",
+                "oklch": "oklch(0.7 0.1 135)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "identity": [
+      {
+        "n": 1,
+        "name": "Toned rose",
+        "fill": {
+          "token": "--hue-1-fill",
+          "hex": "#492d38",
+          "oklch": "oklch(0.335 0.045 355)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#fcbfd5",
+          "oklch": "oklch(0.865 0.075 355)"
+        },
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#d68aa8",
+          "oklch": "oklch(0.72 0.1 355)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Sepia",
+        "fill": {
+          "token": "--hue-2-fill",
+          "hex": "#463222",
+          "oklch": "oklch(0.335 0.04 58)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#f5c8a8",
+          "oklch": "oklch(0.865 0.067 58)"
+        },
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#cf976b",
+          "oklch": "oklch(0.72 0.09 58)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Olive",
+        "fill": {
+          "token": "--hue-3-fill",
+          "hex": "#38381f",
+          "oklch": "oklch(0.335 0.04 108)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#d6d7a4",
+          "oklch": "oklch(0.865 0.067 108)"
+        },
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#aaa965",
+          "oklch": "oklch(0.72 0.09 108)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Fixer teal",
+        "fill": {
+          "token": "--hue-4-fill",
+          "hex": "#203d38",
+          "oklch": "oklch(0.335 0.036 182)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#a7e0d5",
+          "oklch": "oklch(0.865 0.06 182)"
+        },
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#67b5a8",
+          "oklch": "oklch(0.72 0.08 182)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Steel",
+        "fill": {
+          "token": "--hue-5-fill",
+          "hex": "#273948",
+          "oklch": "oklch(0.335 0.036 245)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#b2d8f8",
+          "oklch": "oklch(0.865 0.06 245)"
+        },
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#7aaad4",
+          "oklch": "oklch(0.72 0.08 245)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Selenium",
+        "fill": {
+          "token": "--hue-6-fill",
+          "hex": "#3e3146",
+          "oklch": "oklch(0.335 0.04 312)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#e2c7f3",
+          "oklch": "oklch(0.865 0.067 312)"
+        },
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#b894ce",
+          "oklch": "oklch(0.72 0.09 312)"
+        }
+      }
+    ],
+    "semantic": {}
+  },
+  {
+    "id": "mood",
+    "name": "Mood for Love",
+    "temperature": "warm",
+    "source": "Wong Kar-wai & Christopher Doyle — In the Mood for Love, 2046, Chungking Express",
+    "rationale": "Tobacco-and-rouge shadows, a cheongsam crimson, lamp gold — and the button is jade, the colour of the corridor's tiles.",
+    "trend": "Divine Damson's deep reds and Hidden Gem's jade, given a film's light",
+    "accentName": "Jade",
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f6f2f2",
+          "oklch": "oklch(0.965 0.004 22)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#eae5e4",
+          "oklch": "oklch(0.925 0.006 22)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d8d1d0",
+          "oklch": "oklch(0.865 0.008 22)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#c1b8b8",
+          "oklch": "oklch(0.79 0.01 22)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#a79d9c",
+          "oklch": "oklch(0.705 0.012 22)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#7d7170",
+          "oklch": "oklch(0.56 0.015 22)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#625655",
+          "oklch": "oklch(0.465 0.016 22)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#483d3c",
+          "oklch": "oklch(0.37 0.016 22)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#332828",
+          "oklch": "oklch(0.29 0.016 22)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#2a201f",
+          "oklch": "oklch(0.255 0.016 22)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#221818",
+          "oklch": "oklch(0.222 0.015 22)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#18100f",
+          "oklch": "oklch(0.182 0.014 22)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#e9faf2",
+          "oklch": "oklch(0.97 0.021 166)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#d0f1e1",
+          "oklch": "oklch(0.93 0.041 165.3)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#a8e4c8",
+          "oklch": "oklch(0.87 0.072 164.7)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#7ed6af",
+          "oklch": "oklch(0.81 0.102 164)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#59c497",
+          "oklch": "oklch(0.745 0.12 163.3)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#3aa77b",
+          "oklch": "oklch(0.655 0.12 162.7)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#218a61",
+          "oklch": "oklch(0.565 0.113 162)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#126b49",
+          "oklch": "oklch(0.47 0.098 161.3)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#134b33",
+          "oklch": "oklch(0.37 0.072 160.7)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#0a311f",
+          "oklch": "oklch(0.28 0.054 160)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#b6d6a5",
+          "oklch": "oklch(0.84 0.075 135)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#96c07f",
+          "oklch": "oklch(0.76 0.1 135)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#79a262",
+          "oklch": "oklch(0.665 0.1 135)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#60854b",
+          "oklch": "oklch(0.575 0.095 135)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#4a6838",
+          "oklch": "oklch(0.48 0.08 135)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#334827",
+          "oklch": "oklch(0.375 0.06 135)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#e8c586",
+          "oklch": "oklch(0.84 0.09 82)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#d7a94f",
+          "oklch": "oklch(0.76 0.12 82)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#b88c2e",
+          "oklch": "oklch(0.665 0.12 82)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#9a7113",
+          "oklch": "oklch(0.575 0.113 82)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#785708",
+          "oklch": "oklch(0.48 0.096 82)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#543d09",
+          "oklch": "oklch(0.375 0.072 82)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb4b5",
+          "oklch": "oklch(0.84 0.088 18)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff898e",
+          "oklch": "oklch(0.76 0.143 18)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e06870",
+          "oklch": "oklch(0.665 0.15 18)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#be5058",
+          "oklch": "oklch(0.575 0.142 18)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#953c43",
+          "oklch": "oklch(0.48 0.12 18)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#692a2f",
+          "oklch": "oklch(0.375 0.09 18)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#a4d2eb",
+          "oklch": "oklch(0.84 0.06 232)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#7cbbdb",
+          "oklch": "oklch(0.76 0.08 232)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#5e9dbd",
+          "oklch": "oklch(0.665 0.08 232)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#46819e",
+          "oklch": "oklch(0.575 0.076 232)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#35647c",
+          "oklch": "oklch(0.48 0.064 232)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#254656",
+          "oklch": "oklch(0.375 0.048 232)"
+        }
+      ]
+    },
+    "scrim": {
+      "token": "--scrim-70",
+      "hex": "#18100fb3",
+      "oklch": "oklch(0.182 0.014 22 / 0.7)"
+    },
+    "aura": {
+      "id": "main",
+      "name": "Cheongsam",
+      "colours": [
+        {
+          "slot": 1,
+          "name": "Cheongsam crimson",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-1-300",
+              "hex": "#ffb3bb",
+              "oklch": "oklch(0.84 0.089 12)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-1-500",
+              "hex": "#f06f84",
+              "oklch": "oklch(0.7 0.16 12)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-1-700",
+              "hex": "#9e3e50",
+              "oklch": "oklch(0.5 0.128 12)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-1-warm",
+              "hex": "#ea7d2e",
+              "oklch": "oklch(0.7 0.16 52)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-1-cool",
+              "hex": "#d675ca",
+              "oklch": "oklch(0.7 0.16 332)"
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "name": "Lamp gold",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-2-300",
+              "hex": "#e4c690",
+              "oklch": "oklch(0.84 0.078 82)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-2-500",
+              "hex": "#c6952c",
+              "oklch": "oklch(0.7 0.13 82)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-2-700",
+              "hex": "#805c00",
+              "oklch": "oklch(0.5 0.103 82)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-2-warm",
+              "hex": "#dc8748",
+              "oklch": "oklch(0.7 0.13 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-2-cool",
+              "hex": "#91ab47",
+              "oklch": "oklch(0.7 0.13 122)"
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "name": "Jade",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-3-300",
+              "hex": "#a0dabd",
+              "oklch": "oklch(0.84 0.072 163)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-3-500",
+              "hex": "#4ab689",
+              "oklch": "oklch(0.7 0.12 163)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-3-700",
+              "hex": "#1e7453",
+              "oklch": "oklch(0.5 0.096 163)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-3-warm",
+              "hex": "#90aa51",
+              "oklch": "oklch(0.7 0.12 123)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-3-cool",
+              "hex": "#02b3bf",
+              "oklch": "oklch(0.7 0.119 203)"
+            }
+          ]
+        }
+      ]
+    },
+    "auraAlt": [
+      {
+        "id": "alt-a",
+        "name": "Chungking Express",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Neon magenta",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-1-300",
+                "hex": "#ffaddb",
+                "oklch": "oklch(0.84 0.111 345)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-1-500",
+                "hex": "#f061ba",
+                "oklch": "oklch(0.7 0.2 345)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-1-700",
+                "hex": "#9e3378",
+                "oklch": "oklch(0.5 0.16 345)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-1-warm",
+                "hex": "#ff645f",
+                "oklch": "oklch(0.7 0.19 25)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-1-cool",
+                "hex": "#bb78ff",
+                "oklch": "oklch(0.7 0.197 305)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Sodium yellow",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-2-300",
+                "hex": "#deca81",
+                "oklch": "oklch(0.84 0.096 95)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-2-500",
+                "hex": "#ba9c04",
+                "oklch": "oklch(0.7 0.143 95)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-2-700",
+                "hex": "#766202",
+                "oklch": "oklch(0.5 0.102 95)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-2-warm",
+                "hex": "#e87f25",
+                "oklch": "oklch(0.7 0.16 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-2-cool",
+                "hex": "#70b445",
+                "oklch": "oklch(0.7 0.16 135)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Fluorescent green",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-3-300",
+                "hex": "#a0dda1",
+                "oklch": "oklch(0.84 0.102 145)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-3-500",
+                "hex": "#4db956",
+                "oklch": "oklch(0.7 0.17 145)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-3-700",
+                "hex": "#22762c",
+                "oklch": "oklch(0.5 0.136 145)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-3-warm",
+                "hex": "#ada203",
+                "oklch": "oklch(0.7 0.148 105)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-3-cool",
+                "hex": "#03b7a8",
+                "oklch": "oklch(0.7 0.123 185)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alt-b",
+        "name": "2046",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Oxblood",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-1-300",
+                "hex": "#f6b8bb",
+                "oklch": "oklch(0.84 0.072 15)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-1-500",
+                "hex": "#df7e86",
+                "oklch": "oklch(0.7 0.12 15)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-1-700",
+                "hex": "#924a51",
+                "oklch": "oklch(0.5 0.096 15)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-1-warm",
+                "hex": "#d78951",
+                "oklch": "oklch(0.7 0.12 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-1-cool",
+                "hex": "#cc81bc",
+                "oklch": "oklch(0.7 0.12 335)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Petrol",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-2-300",
+                "hex": "#9fd4e6",
+                "oklch": "oklch(0.84 0.06 220)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-2-500",
+                "hex": "#4aadc9",
+                "oklch": "oklch(0.7 0.1 220)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-2-700",
+                "hex": "#1f6e83",
+                "oklch": "oklch(0.5 0.08 220)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-2-warm",
+                "hex": "#4bb3a1",
+                "oklch": "oklch(0.7 0.1 180)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-2-cool",
+                "hex": "#5aa8d4",
+                "oklch": "oklch(0.7 0.1 235)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Brass",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-3-300",
+                "hex": "#e3c69a",
+                "oklch": "oklch(0.84 0.066 78)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-3-500",
+                "hex": "#c49548",
+                "oklch": "oklch(0.7 0.11 78)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-3-700",
+                "hex": "#7f5c20",
+                "oklch": "oklch(0.5 0.088 78)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-3-warm",
+                "hex": "#d38b59",
+                "oklch": "oklch(0.7 0.11 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-3-cool",
+                "hex": "#98a855",
+                "oklch": "oklch(0.7 0.11 118)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "identity": [
+      {
+        "n": 1,
+        "name": "Lamp gold",
+        "fill": {
+          "token": "--hue-1-fill",
+          "hex": "#42341a",
+          "oklch": "oklch(0.335 0.045 82)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#ebcf9a",
+          "oklch": "oklch(0.865 0.075 82)"
+        },
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#c49e57",
+          "oklch": "oklch(0.72 0.1 82)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Tea",
+        "fill": {
+          "token": "--hue-2-fill",
+          "hex": "#483124",
+          "oklch": "oklch(0.335 0.04 50)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#f8c7ac",
+          "oklch": "oklch(0.865 0.067 50)"
+        },
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#d39471",
+          "oklch": "oklch(0.72 0.09 50)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Jade",
+        "fill": {
+          "token": "--hue-3-fill",
+          "hex": "#1f3e30",
+          "oklch": "oklch(0.335 0.045 163)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#a6e3c5",
+          "oklch": "oklch(0.865 0.075 163)"
+        },
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#64b893",
+          "oklch": "oklch(0.72 0.1 163)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Petrol",
+        "fill": {
+          "token": "--hue-4-fill",
+          "hex": "#1d3c45",
+          "oklch": "oklch(0.335 0.04 220)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#a1def1",
+          "oklch": "oklch(0.865 0.067 220)"
+        },
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#5db2cc",
+          "oklch": "oklch(0.72 0.09 220)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Smoke violet",
+        "fill": {
+          "token": "--hue-5-fill",
+          "hex": "#393347",
+          "oklch": "oklch(0.335 0.036 300)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#d8caf5",
+          "oklch": "oklch(0.865 0.06 300)"
+        },
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#ac9ad0",
+          "oklch": "oklch(0.72 0.08 300)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Rouge",
+        "fill": {
+          "token": "--hue-6-fill",
+          "hex": "#482d3a",
+          "oklch": "oklch(0.335 0.045 350)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#fabfd9",
+          "oklch": "oklch(0.865 0.075 350)"
+        },
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#d48aad",
+          "oklch": "oklch(0.72 0.1 350)"
+        }
+      }
+    ],
+    "semantic": {}
+  },
+  {
+    "id": "aquarium",
+    "name": "Aquarium",
+    "temperature": "cool",
+    "source": "A public aquarium after closing — tank light through dark water, coral, anemones",
+    "rationale": "Deep blue-green dark lit from inside by one cyan tank, with coral and anemone violet drifting through it.",
+    "trend": "Transformative Teal (CotY 2026) as light in water rather than a swatch",
+    "accentName": "Tank cyan",
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#eff4f6",
+          "oklch": "oklch(0.965 0.006 222)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e1e7ea",
+          "oklch": "oklch(0.925 0.008 222)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#ccd4d7",
+          "oklch": "oklch(0.865 0.01 222)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#b2bdc1",
+          "oklch": "oklch(0.79 0.013 222)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#96a2a7",
+          "oklch": "oklch(0.705 0.016 222)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#69777d",
+          "oklch": "oklch(0.56 0.019 222)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#4e5c62",
+          "oklch": "oklch(0.465 0.02 222)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#344247",
+          "oklch": "oklch(0.37 0.02 222)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#1d2a2f",
+          "oklch": "oklch(0.275 0.02 222)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#152126",
+          "oklch": "oklch(0.24 0.02 222)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#0d191d",
+          "oklch": "oklch(0.205 0.019 222)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#061014",
+          "oklch": "oklch(0.165 0.018 222)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#e7f9fc",
+          "oklch": "oklch(0.97 0.019 208)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#ccf0f5",
+          "oklch": "oklch(0.93 0.038 207.3)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#a1e1ea",
+          "oklch": "oklch(0.87 0.066 206.7)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#7fdfec",
+          "oklch": "oklch(0.85 0.093 206)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#53cfdc",
+          "oklch": "oklch(0.79 0.11 205.3)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#2cb2be",
+          "oklch": "oklch(0.7 0.11 204.7)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#0095a0",
+          "oklch": "oklch(0.61 0.104 204)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#00686f",
+          "oklch": "oklch(0.47 0.08 203.3)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#00494e",
+          "oklch": "oklch(0.37 0.063 202.7)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#013033",
+          "oklch": "oklch(0.28 0.047 202)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#a1dab8",
+          "oklch": "oklch(0.84 0.075 158)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#77c599",
+          "oklch": "oklch(0.76 0.1 158)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#5aa67c",
+          "oklch": "oklch(0.665 0.1 158)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#418a63",
+          "oklch": "oklch(0.575 0.095 158)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#316b4c",
+          "oklch": "oklch(0.48 0.08 158)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#224b35",
+          "oklch": "oklch(0.375 0.06 158)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#e7c58d",
+          "oklch": "oklch(0.84 0.082 80)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#d6a95b",
+          "oklch": "oklch(0.76 0.11 80)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#b78c3c",
+          "oklch": "oklch(0.665 0.11 80)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#997124",
+          "oklch": "oklch(0.575 0.104 80)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#775718",
+          "oklch": "oklch(0.48 0.088 80)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#533d12",
+          "oklch": "oklch(0.375 0.066 80)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb3b8",
+          "oklch": "oklch(0.84 0.088 15)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#fd8994",
+          "oklch": "oklch(0.76 0.14 15)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#dc6c78",
+          "oklch": "oklch(0.665 0.14 15)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#ba535f",
+          "oklch": "oklch(0.575 0.133 15)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#923f49",
+          "oklch": "oklch(0.48 0.112 15)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#662c32",
+          "oklch": "oklch(0.375 0.084 15)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#aecdf6",
+          "oklch": "oklch(0.84 0.067 255)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#8ab4ea",
+          "oklch": "oklch(0.76 0.09 255)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#6e96ca",
+          "oklch": "oklch(0.665 0.09 255)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#567baa",
+          "oklch": "oklch(0.575 0.085 255)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#415f86",
+          "oklch": "oklch(0.48 0.072 255)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#2d425d",
+          "oklch": "oklch(0.375 0.054 255)"
+        }
+      ]
+    },
+    "scrim": {
+      "token": "--scrim-70",
+      "hex": "#061014b3",
+      "oklch": "oklch(0.165 0.018 222 / 0.7)"
+    },
+    "aura": {
+      "id": "main",
+      "name": "Night tank",
+      "colours": [
+        {
+          "slot": 1,
+          "name": "Bioluminescent cyan",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-1-300",
+              "hex": "#8bdadf",
+              "oklch": "oklch(0.84 0.078 200)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-1-500",
+              "hex": "#00b4bb",
+              "oklch": "oklch(0.7 0.119 200)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-1-700",
+              "hex": "#007176",
+              "oklch": "oklch(0.5 0.085 200)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-1-warm",
+              "hex": "#44b782",
+              "oklch": "oklch(0.7 0.13 160)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-1-cool",
+              "hex": "#37aae3",
+              "oklch": "oklch(0.7 0.13 235)"
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "name": "Coral",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-2-300",
+              "hex": "#ffb6a3",
+              "oklch": "oklch(0.84 0.089 35)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-2-500",
+              "hex": "#ec785b",
+              "oklch": "oklch(0.7 0.15 35)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-2-700",
+              "hex": "#9b4630",
+              "oklch": "oklch(0.5 0.12 35)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-2-warm",
+              "hex": "#e48233",
+              "oklch": "oklch(0.7 0.15 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-2-cool",
+              "hex": "#e573a3",
+              "oklch": "oklch(0.7 0.15 355)"
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "name": "Anemone violet",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-3-300",
+              "hex": "#d6bef4",
+              "oklch": "oklch(0.84 0.078 305)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-3-500",
+              "hex": "#b188df",
+              "oklch": "oklch(0.7 0.13 305)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-3-700",
+              "hex": "#715392",
+              "oklch": "oklch(0.5 0.104 305)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-3-warm",
+              "hex": "#d77cb1",
+              "oklch": "oklch(0.7 0.13 345)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-3-cool",
+              "hex": "#769cef",
+              "oklch": "oklch(0.7 0.13 265)"
+            }
+          ]
+        }
+      ]
+    },
+    "auraAlt": [
+      {
+        "id": "alt-a",
+        "name": "Kelp forest",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Kelp",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-1-300",
+                "hex": "#c5d1a1",
+                "oklch": "oklch(0.84 0.066 120)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-1-500",
+                "hex": "#96a856",
+                "oklch": "oklch(0.7 0.11 120)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-1-700",
+                "hex": "#5d6a2c",
+                "oklch": "oklch(0.5 0.088 120)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-1-warm",
+                "hex": "#c29647",
+                "oklch": "oklch(0.7 0.11 80)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-1-cool",
+                "hex": "#59b387",
+                "oklch": "oklch(0.7 0.11 160)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Sea glass",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-2-300",
+                "hex": "#a5d7cc",
+                "oklch": "oklch(0.84 0.054 180)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-2-500",
+                "hex": "#57b1a0",
+                "oklch": "oklch(0.7 0.09 180)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-2-700",
+                "hex": "#2b7165",
+                "oklch": "oklch(0.5 0.072 180)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-2-warm",
+                "hex": "#80ac77",
+                "oklch": "oklch(0.7 0.09 140)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-2-cool",
+                "hex": "#57acc5",
+                "oklch": "oklch(0.7 0.09 220)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Sunbeam",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-3-300",
+                "hex": "#e9c491",
+                "oklch": "oklch(0.84 0.078 75)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-3-500",
+                "hex": "#cd9130",
+                "oklch": "oklch(0.7 0.13 75)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-3-700",
+                "hex": "#855904",
+                "oklch": "oklch(0.5 0.104 75)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-3-warm",
+                "hex": "#dc8748",
+                "oklch": "oklch(0.7 0.13 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-3-cool",
+                "hex": "#9ca73e",
+                "oklch": "oklch(0.7 0.13 115)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alt-b",
+        "name": "Reef",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Clownfish",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-1-300",
+                "hex": "#ffb98a",
+                "oklch": "oklch(0.84 0.102 55)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-1-500",
+                "hex": "#ec7c0e",
+                "oklch": "oklch(0.7 0.17 55)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-1-700",
+                "hex": "#974c02",
+                "oklch": "oklch(0.5 0.123 55)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-1-warm",
+                "hex": "#ec7c0e",
+                "oklch": "oklch(0.7 0.17 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-1-cool",
+                "hex": "#f56b7c",
+                "oklch": "oklch(0.7 0.17 15)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Reef blue",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-2-300",
+                "hex": "#a0d1fb",
+                "oklch": "oklch(0.84 0.078 245)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-2-500",
+                "hex": "#4fa6e9",
+                "oklch": "oklch(0.7 0.13 245)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-2-700",
+                "hex": "#25689a",
+                "oklch": "oklch(0.5 0.104 245)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-2-warm",
+                "hex": "#9792ec",
+                "oklch": "oklch(0.7 0.13 285)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-2-cool",
+                "hex": "#37aae3",
+                "oklch": "oklch(0.7 0.13 235)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Sea slug",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-3-300",
+                "hex": "#c8d28e",
+                "oklch": "oklch(0.84 0.09 115)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-3-500",
+                "hex": "#9ca81f",
+                "oklch": "oklch(0.7 0.15 115)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-3-700",
+                "hex": "#626a01",
+                "oklch": "oklch(0.5 0.113 115)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-3-warm",
+                "hex": "#d38f04",
+                "oklch": "oklch(0.7 0.147 75)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-3-cool",
+                "hex": "#3bb974",
+                "oklch": "oklch(0.7 0.15 155)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "identity": [
+      {
+        "n": 1,
+        "name": "Coral",
+        "fill": {
+          "token": "--hue-1-fill",
+          "hex": "#4b2f24",
+          "oklch": "oklch(0.335 0.045 42)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#fec3ac",
+          "oklch": "oklch(0.865 0.075 42)"
+        },
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#da8f72",
+          "oklch": "oklch(0.72 0.1 42)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Sand",
+        "fill": {
+          "token": "--hue-2-fill",
+          "hex": "#41351e",
+          "oklch": "oklch(0.335 0.04 82)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#e9cfa1",
+          "oklch": "oklch(0.865 0.067 82)"
+        },
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#c19f61",
+          "oklch": "oklch(0.72 0.09 82)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Kelp",
+        "fill": {
+          "token": "--hue-3-fill",
+          "hex": "#323a23",
+          "oklch": "oklch(0.335 0.04 125)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#c8dbab",
+          "oklch": "oklch(0.865 0.067 125)"
+        },
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#98af70",
+          "oklch": "oklch(0.72 0.09 125)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Sea glass",
+        "fill": {
+          "token": "--hue-4-fill",
+          "hex": "#213d37",
+          "oklch": "oklch(0.335 0.036 178)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#a9e0d2",
+          "oklch": "oklch(0.865 0.06 178)"
+        },
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#6ab5a5",
+          "oklch": "oklch(0.72 0.08 178)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Reef blue",
+        "fill": {
+          "token": "--hue-5-fill",
+          "hex": "#25394a",
+          "oklch": "oklch(0.335 0.04 245)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#aed8fc",
+          "oklch": "oklch(0.865 0.067 245)"
+        },
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#73abda",
+          "oklch": "oklch(0.72 0.09 245)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Anemone",
+        "fill": {
+          "token": "--hue-6-fill",
+          "hex": "#3c3149",
+          "oklch": "oklch(0.335 0.045 305)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#dec7fb",
+          "oklch": "oklch(0.865 0.075 305)"
+        },
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#b395d7",
+          "oklch": "oklch(0.72 0.1 305)"
+        }
+      }
+    ],
+    "semantic": {}
+  },
+  {
+    "id": "basalt",
+    "name": "Basalt",
+    "temperature": "cool",
+    "source": "Volcanic basalt with a sulphur crust and hot-spring minerals — Iceland, Danakil",
+    "rationale": "Blue-black stone; the button is the sulphur crystal, and magma and a hot-spring teal glow from the cracks.",
+    "trend": "Luminous Blue's cool depth (CotY 2027) as stone, Energy Orange as heat",
+    "accentName": "Sulphur",
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f2f3f5",
+          "oklch": "oklch(0.965 0.003 258)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e4e6e9",
+          "oklch": "oklch(0.925 0.004 258)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d0d3d7",
+          "oklch": "oklch(0.865 0.006 258)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#b8bbbf",
+          "oklch": "oklch(0.79 0.007 258)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#9ca0a6",
+          "oklch": "oklch(0.705 0.009 258)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#70757b",
+          "oklch": "oklch(0.56 0.011 258)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#555a60",
+          "oklch": "oklch(0.465 0.012 258)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#3c4046",
+          "oklch": "oklch(0.37 0.012 258)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#282c31",
+          "oklch": "oklch(0.29 0.012 258)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#1f2329",
+          "oklch": "oklch(0.255 0.012 258)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#181b20",
+          "oklch": "oklch(0.222 0.011 258)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#0f1217",
+          "oklch": "oklch(0.182 0.01 258)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#f7f7e0",
+          "oklch": "oklch(0.97 0.03 106)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#edebbe",
+          "oklch": "oklch(0.93 0.059 105.3)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#f5ef9e",
+          "oklch": "oklch(0.94 0.102 104.7)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#f1e66b",
+          "oklch": "oklch(0.91 0.144 104)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#eada37",
+          "oklch": "oklch(0.875 0.17 103.3)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#d3c100",
+          "oklch": "oklch(0.8 0.168 102.7)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#b1a103",
+          "oklch": "oklch(0.7 0.146 102)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#8a7c00",
+          "oklch": "oklch(0.58 0.121 101.3)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#5e5302",
+          "oklch": "oklch(0.44 0.091 100.7)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#302900",
+          "oklch": "oklch(0.28 0.058 100)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#add8ad",
+          "oklch": "oklch(0.84 0.075 145)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#88c28a",
+          "oklch": "oklch(0.76 0.1 145)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#6ba46d",
+          "oklch": "oklch(0.665 0.1 145)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#538855",
+          "oklch": "oklch(0.575 0.095 145)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#3f6a41",
+          "oklch": "oklch(0.48 0.08 145)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#2c492d",
+          "oklch": "oklch(0.375 0.06 145)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#fcbb82",
+          "oklch": "oklch(0.84 0.105 62)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#f09b48",
+          "oklch": "oklch(0.76 0.14 62)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#cf7d24",
+          "oklch": "oklch(0.665 0.14 62)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#af6401",
+          "oklch": "oklch(0.575 0.132 62)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#884d01",
+          "oklch": "oklch(0.48 0.11 62)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#603503",
+          "oklch": "oklch(0.375 0.084 62)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#feb5ad",
+          "oklch": "oklch(0.84 0.087 26)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff8a81",
+          "oklch": "oklch(0.76 0.143 26)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e16a62",
+          "oklch": "oklch(0.665 0.15 26)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#be514b",
+          "oklch": "oklch(0.575 0.142 26)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#963d38",
+          "oklch": "oklch(0.48 0.12 26)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#692b27",
+          "oklch": "oklch(0.375 0.09 26)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#9bd4ec",
+          "oklch": "oklch(0.84 0.067 225)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#6dbddc",
+          "oklch": "oklch(0.76 0.09 225)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#4f9fbd",
+          "oklch": "oklch(0.665 0.09 225)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#37839f",
+          "oklch": "oklch(0.575 0.085 225)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#28667c",
+          "oklch": "oklch(0.48 0.072 225)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#1c4757",
+          "oklch": "oklch(0.375 0.054 225)"
+        }
+      ]
+    },
+    "scrim": {
+      "token": "--scrim-70",
+      "hex": "#0f1217b3",
+      "oklch": "oklch(0.182 0.01 258 / 0.7)"
+    },
+    "aura": {
+      "id": "main",
+      "name": "Fumarole",
+      "colours": [
+        {
+          "slot": 1,
+          "name": "Magma",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-1-300",
+              "hex": "#ffb7a0",
+              "oklch": "oklch(0.84 0.09 38)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-1-500",
+              "hex": "#f47249",
+              "oklch": "oklch(0.7 0.17 38)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-1-700",
+              "hex": "#a14121",
+              "oklch": "oklch(0.5 0.136 38)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-1-warm",
+              "hex": "#ec7c0e",
+              "oklch": "oklch(0.7 0.17 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-1-cool",
+              "hex": "#ee6b9e",
+              "oklch": "oklch(0.7 0.17 358)"
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "name": "Sulphur",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-2-300",
+              "hex": "#d6ce7e",
+              "oklch": "oklch(0.84 0.102 103)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-2-500",
+              "hex": "#b0a101",
+              "oklch": "oklch(0.7 0.147 103)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-2-700",
+              "hex": "#6f6500",
+              "oklch": "oklch(0.5 0.105 103)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-2-warm",
+              "hex": "#e28403",
+              "oklch": "oklch(0.7 0.159 63)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-2-cool",
+              "hex": "#54b851",
+              "oklch": "oklch(0.7 0.17 143)"
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "name": "Hot-spring teal",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-3-300",
+              "hex": "#93dad3",
+              "oklch": "oklch(0.84 0.072 188)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-3-500",
+              "hex": "#0fb6ac",
+              "oklch": "oklch(0.7 0.12 188)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-3-700",
+              "hex": "#00736c",
+              "oklch": "oklch(0.5 0.087 188)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-3-warm",
+              "hex": "#67b373",
+              "oklch": "oklch(0.7 0.12 148)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-3-cool",
+              "hex": "#37acd9",
+              "oklch": "oklch(0.7 0.12 228)"
+            }
+          ]
+        }
+      ]
+    },
+    "auraAlt": [
+      {
+        "id": "alt-a",
+        "name": "Lava field",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Lava",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-1-300",
+                "hex": "#ffb5ab",
+                "oklch": "oklch(0.84 0.088 28)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-1-500",
+                "hex": "#f66e60",
+                "oklch": "oklch(0.7 0.17 28)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-1-700",
+                "hex": "#a23d34",
+                "oklch": "oklch(0.5 0.136 28)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-1-warm",
+                "hex": "#ec7c0e",
+                "oklch": "oklch(0.7 0.17 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-1-cool",
+                "hex": "#e86db1",
+                "oklch": "oklch(0.7 0.17 348)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Ember",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-2-300",
+                "hex": "#f9bc8a",
+                "oklch": "oklch(0.84 0.096 60)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-2-500",
+                "hex": "#e58212",
+                "oklch": "oklch(0.7 0.16 60)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-2-700",
+                "hex": "#925001",
+                "oklch": "oklch(0.5 0.117 60)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-2-warm",
+                "hex": "#e87f25",
+                "oklch": "oklch(0.7 0.16 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-2-cool",
+                "hex": "#b49f03",
+                "oklch": "oklch(0.7 0.145 100)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Ash violet",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-3-300",
+                "hex": "#cfc4e6",
+                "oklch": "oklch(0.84 0.048 300)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-3-500",
+                "hex": "#a693c9",
+                "oklch": "oklch(0.7 0.08 300)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-3-700",
+                "hex": "#695b83",
+                "oklch": "oklch(0.5 0.064 300)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-3-warm",
+                "hex": "#c18bae",
+                "oklch": "oklch(0.7 0.08 340)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-3-cool",
+                "hex": "#81a0d1",
+                "oklch": "oklch(0.7 0.08 260)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alt-b",
+        "name": "Glacier",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Glacier blue",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-1-300",
+                "hex": "#9dd4ed",
+                "oklch": "oklch(0.84 0.066 228)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-1-500",
+                "hex": "#46abd4",
+                "oklch": "oklch(0.7 0.11 228)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-1-700",
+                "hex": "#1b6d8b",
+                "oklch": "oklch(0.5 0.088 228)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-1-warm",
+                "hex": "#31b4ab",
+                "oklch": "oklch(0.7 0.11 188)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-1-cool",
+                "hex": "#50a9d9",
+                "oklch": "oklch(0.7 0.11 235)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Lichen",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-2-300",
+                "hex": "#bad4ad",
+                "oklch": "oklch(0.84 0.06 135)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-2-500",
+                "hex": "#83ad6d",
+                "oklch": "oklch(0.7 0.1 135)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-2-700",
+                "hex": "#4f6d3e",
+                "oklch": "oklch(0.5 0.08 135)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-2-warm",
+                "hex": "#b29e51",
+                "oklch": "oklch(0.7 0.1 95)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-2-cool",
+                "hex": "#50b39b",
+                "oklch": "oklch(0.7 0.1 175)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Obsidian plum",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-3-300",
+                "hex": "#dbc0e1",
+                "oklch": "oklch(0.84 0.054 320)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-3-500",
+                "hex": "#b88cc1",
+                "oklch": "oklch(0.7 0.09 320)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-3-700",
+                "hex": "#76567d",
+                "oklch": "oklch(0.5 0.072 320)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-3-warm",
+                "hex": "#cd879c",
+                "oklch": "oklch(0.7 0.09 0)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-3-cool",
+                "hex": "#9398d6",
+                "oklch": "oklch(0.7 0.09 280)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "identity": [
+      {
+        "n": 1,
+        "name": "Ember",
+        "fill": {
+          "token": "--hue-1-fill",
+          "hex": "#47311e",
+          "oklch": "oklch(0.335 0.045 62)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#f7c8a0",
+          "oklch": "oklch(0.865 0.075 62)"
+        },
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#d29661",
+          "oklch": "oklch(0.72 0.1 62)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Sulphur",
+        "fill": {
+          "token": "--hue-2-fill",
+          "hex": "#3b381b",
+          "oklch": "oklch(0.335 0.045 103)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#dbd59c",
+          "oklch": "oklch(0.865 0.075 103)"
+        },
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#b0a75a",
+          "oklch": "oklch(0.72 0.1 103)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Lichen",
+        "fill": {
+          "token": "--hue-3-fill",
+          "hex": "#2c3c28",
+          "oklch": "oklch(0.335 0.04 140)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#bcdeb4",
+          "oklch": "oklch(0.865 0.067 140)"
+        },
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#86b37d",
+          "oklch": "oklch(0.72 0.09 140)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Mineral teal",
+        "fill": {
+          "token": "--hue-4-fill",
+          "hex": "#1f3d3a",
+          "oklch": "oklch(0.335 0.036 188)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#a6e0da",
+          "oklch": "oklch(0.865 0.06 188)"
+        },
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#65b5ae",
+          "oklch": "oklch(0.72 0.08 188)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Glacier",
+        "fill": {
+          "token": "--hue-5-fill",
+          "hex": "#203b47",
+          "oklch": "oklch(0.335 0.04 230)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#a5dcf7",
+          "oklch": "oklch(0.865 0.067 230)"
+        },
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#65afd2",
+          "oklch": "oklch(0.72 0.09 230)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Ash violet",
+        "fill": {
+          "token": "--hue-6-fill",
+          "hex": "#393347",
+          "oklch": "oklch(0.335 0.036 300)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#d8caf5",
+          "oklch": "oklch(0.865 0.06 300)"
+        },
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#ac9ad0",
+          "oklch": "oklch(0.72 0.08 300)"
+        }
+      }
+    ],
+    "semantic": {}
+  },
+  {
+    "id": "riso",
+    "name": "Risograph",
+    "temperature": "neutral",
+    "source": "Risograph duotones — fluorescent pink, teal and yellow soy inks, slightly off-register",
+    "rationale": "Clean grey stock and three printer's inks that overprint; the button is the fluorescent pink everyone remembers from a zine.",
+    "trend": "SS27's 'loud and quiet together' (Rosy Future, Waterfall, Anise) as ink",
+    "accentName": "Fluorescent pink",
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f3f3f3",
+          "oklch": "oklch(0.965 0 0)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e6e6e6",
+          "oklch": "oklch(0.925 0 0)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d2d2d2",
+          "oklch": "oklch(0.865 0 0)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#bababa",
+          "oklch": "oklch(0.79 0 0)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#a0a0a0",
+          "oklch": "oklch(0.705 0 0)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#747474",
+          "oklch": "oklch(0.56 0 0)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#595959",
+          "oklch": "oklch(0.465 0 0)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#404040",
+          "oklch": "oklch(0.37 0 0)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#2b2b2b",
+          "oklch": "oklch(0.29 0 0)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#232323",
+          "oklch": "oklch(0.255 0 0)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#1b1b1b",
+          "oklch": "oklch(0.222 0 0)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#fff1f6",
+          "oklch": "oklch(0.97 0.016 353)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#ffddea",
+          "oklch": "oklch(0.93 0.04 353.7)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#ffc0d7",
+          "oklch": "oklch(0.87 0.078 354.3)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#ff9fc5",
+          "oklch": "oklch(0.81 0.122 355)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#ff77b0",
+          "oklch": "oklch(0.745 0.175 355.7)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#e94e94",
+          "oklch": "oklch(0.655 0.2 356.3)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#c63477",
+          "oklch": "oklch(0.565 0.19 357)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#9c225b",
+          "oklch": "oklch(0.47 0.164 357.7)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#6e1b3f",
+          "oklch": "oklch(0.37 0.12 358.3)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#490f28",
+          "oklch": "oklch(0.28 0.09 359)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#97deaf",
+          "oklch": "oklch(0.84 0.097 155)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#65c98c",
+          "oklch": "oklch(0.76 0.13 155)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#45ab70",
+          "oklch": "oklch(0.665 0.13 155)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#2b8e58",
+          "oklch": "oklch(0.575 0.123 155)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#1e6e43",
+          "oklch": "oklch(0.48 0.104 155)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#164d2e",
+          "oklch": "oklch(0.375 0.078 155)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#ffba7d",
+          "oklch": "oklch(0.84 0.111 62)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#f4993c",
+          "oklch": "oklch(0.76 0.15 62)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#d37b0d",
+          "oklch": "oklch(0.665 0.15 62)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#af6401",
+          "oklch": "oklch(0.575 0.132 62)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#884d01",
+          "oklch": "oklch(0.48 0.11 62)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#613500",
+          "oklch": "oklch(0.375 0.086 62)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb5ae",
+          "oklch": "oklch(0.84 0.087 25)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff8a82",
+          "oklch": "oklch(0.76 0.143 25)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e56660",
+          "oklch": "oklch(0.665 0.16 25)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#c24d49",
+          "oklch": "oklch(0.575 0.152 25)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#993a37",
+          "oklch": "oklch(0.48 0.128 25)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#6b2826",
+          "oklch": "oklch(0.375 0.096 25)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#a8ceff",
+          "oklch": "oklch(0.84 0.08 255)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#81b4f6",
+          "oklch": "oklch(0.76 0.11 255)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#6496d6",
+          "oklch": "oklch(0.665 0.11 255)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#4d7bb5",
+          "oklch": "oklch(0.575 0.104 255)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#3a5f8e",
+          "oklch": "oklch(0.48 0.088 255)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#284263",
+          "oklch": "oklch(0.375 0.066 255)"
+        }
+      ]
+    },
+    "scrim": {
+      "token": "--scrim-70",
+      "hex": "#121212b3",
+      "oklch": "oklch(0.182 0 0 / 0.7)"
+    },
+    "aura": {
+      "id": "main",
+      "name": "Pink · Teal · Yellow",
+      "colours": [
+        {
+          "slot": 1,
+          "name": "Fluorescent pink",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-1-300",
+              "hex": "#ffb0cd",
+              "oklch": "oklch(0.84 0.098 356)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-1-500",
+              "hex": "#f95da2",
+              "oklch": "oklch(0.7 0.2 356)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-1-700",
+              "hex": "#a43066",
+              "oklch": "oklch(0.5 0.16 356)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-1-warm",
+              "hex": "#ff673e",
+              "oklch": "oklch(0.7 0.194 36)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-1-cool",
+              "hex": "#cd70f0",
+              "oklch": "oklch(0.7 0.2 316)"
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "name": "Riso teal",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-2-300",
+              "hex": "#91d9e1",
+              "oklch": "oklch(0.84 0.072 205)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-2-500",
+              "hex": "#05b3c1",
+              "oklch": "oklch(0.7 0.119 205)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-2-700",
+              "hex": "#02717a",
+              "oklch": "oklch(0.5 0.085 205)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-2-warm",
+              "hex": "#46b68c",
+              "oklch": "oklch(0.7 0.12 165)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-2-cool",
+              "hex": "#45aade",
+              "oklch": "oklch(0.7 0.12 235)"
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "name": "Riso yellow",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-3-300",
+              "hex": "#dfca7b",
+              "oklch": "oklch(0.84 0.102 95)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-3-500",
+              "hex": "#ba9c04",
+              "oklch": "oklch(0.7 0.143 95)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-3-700",
+              "hex": "#766202",
+              "oklch": "oklch(0.5 0.102 95)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-3-warm",
+              "hex": "#ec7c0e",
+              "oklch": "oklch(0.7 0.17 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-3-cool",
+              "hex": "#6db53c",
+              "oklch": "oklch(0.7 0.17 135)"
+            }
+          ]
+        }
+      ]
+    },
+    "auraAlt": [
+      {
+        "id": "alt-a",
+        "name": "Federal & Orange",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Federal blue",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-1-300",
+                "hex": "#b2cafe",
+                "oklch": "oklch(0.84 0.078 265)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-1-500",
+                "hex": "#709afb",
+                "oklch": "oklch(0.7 0.15 265)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-1-700",
+                "hex": "#4160a7",
+                "oklch": "oklch(0.5 0.12 265)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-1-warm",
+                "hex": "#b484e8",
+                "oklch": "oklch(0.7 0.15 305)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-1-cool",
+                "hex": "#03abec",
+                "oklch": "oklch(0.7 0.148 235)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Riso orange",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-2-300",
+                "hex": "#ffb98a",
+                "oklch": "oklch(0.84 0.102 55)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-2-500",
+                "hex": "#ec7c0e",
+                "oklch": "oklch(0.7 0.17 55)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-2-700",
+                "hex": "#974c02",
+                "oklch": "oklch(0.5 0.123 55)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-2-warm",
+                "hex": "#ec7c0e",
+                "oklch": "oklch(0.7 0.17 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-2-cool",
+                "hex": "#f56b7c",
+                "oklch": "oklch(0.7 0.17 15)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Mint",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-3-300",
+                "hex": "#a0d9c4",
+                "oklch": "oklch(0.84 0.066 170)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-3-500",
+                "hex": "#4ab494",
+                "oklch": "oklch(0.7 0.11 170)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-3-700",
+                "hex": "#1e735b",
+                "oklch": "oklch(0.5 0.088 170)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-3-warm",
+                "hex": "#88ac61",
+                "oklch": "oklch(0.7 0.11 130)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-3-cool",
+                "hex": "#30b1c4",
+                "oklch": "oklch(0.7 0.11 210)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alt-b",
+        "name": "Sunflower & Purple",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Sunflower",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-1-300",
+                "hex": "#e5c780",
+                "oklch": "oklch(0.84 0.096 88)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-1-500",
+                "hex": "#c39800",
+                "oklch": "oklch(0.7 0.143 88)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-1-700",
+                "hex": "#7b5f01",
+                "oklch": "oklch(0.5 0.102 88)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-1-warm",
+                "hex": "#e87f25",
+                "oklch": "oklch(0.7 0.16 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-1-cool",
+                "hex": "#81b033",
+                "oklch": "oklch(0.7 0.16 128)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Purple",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-2-300",
+                "hex": "#d8bcfa",
+                "oklch": "oklch(0.84 0.09 305)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-2-500",
+                "hex": "#b484e8",
+                "oklch": "oklch(0.7 0.15 305)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-2-700",
+                "hex": "#734f99",
+                "oklch": "oklch(0.5 0.12 305)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-2-warm",
+                "hex": "#de75b4",
+                "oklch": "oklch(0.7 0.15 345)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-2-cool",
+                "hex": "#709afb",
+                "oklch": "oklch(0.7 0.15 265)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Kelly green",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-3-300",
+                "hex": "#a0dcac",
+                "oklch": "oklch(0.84 0.09 150)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-3-500",
+                "hex": "#4cb86a",
+                "oklch": "oklch(0.7 0.15 150)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-3-700",
+                "hex": "#21763c",
+                "oklch": "oklch(0.5 0.12 150)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-3-warm",
+                "hex": "#a5a50e",
+                "oklch": "oklch(0.7 0.15 110)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-3-cool",
+                "hex": "#08b6af",
+                "oklch": "oklch(0.7 0.12 190)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "identity": [
+      {
+        "n": 1,
+        "name": "Pink",
+        "fill": {
+          "token": "--hue-1-fill",
+          "hex": "#4b2c37",
+          "oklch": "oklch(0.335 0.049 356)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#ffbdd4",
+          "oklch": "oklch(0.865 0.081 356)"
+        },
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#db87a7",
+          "oklch": "oklch(0.72 0.11 356)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Orange",
+        "fill": {
+          "token": "--hue-2-fill",
+          "hex": "#48311f",
+          "oklch": "oklch(0.335 0.045 58)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#f9c7a2",
+          "oklch": "oklch(0.865 0.075 58)"
+        },
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#d49564",
+          "oklch": "oklch(0.72 0.1 58)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Yellow",
+        "fill": {
+          "token": "--hue-3-fill",
+          "hex": "#3e361a",
+          "oklch": "oklch(0.335 0.045 95)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#e2d39a",
+          "oklch": "oklch(0.865 0.075 95)"
+        },
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#b8a457",
+          "oklch": "oklch(0.72 0.1 95)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Mint",
+        "fill": {
+          "token": "--hue-4-fill",
+          "hex": "#1f3d34",
+          "oklch": "oklch(0.335 0.04 172)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#a6e2ce",
+          "oklch": "oklch(0.865 0.067 172)"
+        },
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#64b79e",
+          "oklch": "oklch(0.72 0.09 172)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Teal",
+        "fill": {
+          "token": "--hue-5-fill",
+          "hex": "#1b3c43",
+          "oklch": "oklch(0.335 0.04 212)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#9fdfec",
+          "oklch": "oklch(0.865 0.067 212)"
+        },
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#59b4c5",
+          "oklch": "oklch(0.72 0.09 212)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Purple",
+        "fill": {
+          "token": "--hue-6-fill",
+          "hex": "#3a314b",
+          "oklch": "oklch(0.335 0.045 300)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#dac8fd",
+          "oklch": "oklch(0.865 0.075 300)"
+        },
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#ae96da",
+          "oklch": "oklch(0.72 0.1 300)"
+        }
+      }
+    ],
+    "semantic": {}
+  },
+  {
+    "id": "urushi",
+    "name": "Urushi",
+    "temperature": "neutral",
+    "source": "Japanese lacquerware — sumi ink, cinnabar, gold leaf and raden (abalone inlay)",
+    "rationale": "Ink-black and lacquer; the button is aogai, the blue-violet flash of abalone shell, set against cinnabar and gold.",
+    "trend": "Cloud Dancer's quiet (Pantone 2026) as ink; Lavender Oil grown into abalone",
+    "accentName": "Aogai",
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f3f3f3",
+          "oklch": "oklch(0.965 0 0)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e6e6e5",
+          "oklch": "oklch(0.925 0.001 70)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d3d2d2",
+          "oklch": "oklch(0.865 0.001 70)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#bbbaba",
+          "oklch": "oklch(0.79 0.001 70)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#a1a09e",
+          "oklch": "oklch(0.705 0.002 70)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#757473",
+          "oklch": "oklch(0.56 0.002 70)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#5a5958",
+          "oklch": "oklch(0.465 0.002 70)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#403f3f",
+          "oklch": "oklch(0.37 0.002 70)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#2c2b2a",
+          "oklch": "oklch(0.29 0.002 70)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#232322",
+          "oklch": "oklch(0.255 0.002 70)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#1c1b1a",
+          "oklch": "oklch(0.222 0.002 70)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#131211",
+          "oklch": "oklch(0.182 0.002 70)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#f3f4ff",
+          "oklch": "oklch(0.97 0.014 278)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#e3e6fe",
+          "oklch": "oklch(0.93 0.033 278.9)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#cbd0ff",
+          "oklch": "oklch(0.87 0.064 279.8)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#b5baff",
+          "oklch": "oklch(0.81 0.097 280.7)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#a0a3f6",
+          "oklch": "oklch(0.745 0.12 281.6)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#8686d8",
+          "oklch": "oklch(0.655 0.12 282.4)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#6e6cb6",
+          "oklch": "oklch(0.565 0.113 283.3)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#55528f",
+          "oklch": "oklch(0.47 0.098 284.2)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#3c3a64",
+          "oklch": "oklch(0.37 0.072 285.1)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#272442",
+          "oklch": "oklch(0.28 0.054 286)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#a5d9bc",
+          "oklch": "oklch(0.84 0.067 160)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#7cc39d",
+          "oklch": "oklch(0.76 0.09 160)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#5fa581",
+          "oklch": "oklch(0.665 0.09 160)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#478867",
+          "oklch": "oklch(0.575 0.085 160)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#356a4f",
+          "oklch": "oklch(0.48 0.072 160)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#254a37",
+          "oklch": "oklch(0.375 0.054 160)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#e3c78c",
+          "oklch": "oklch(0.84 0.082 85)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#d1ac5a",
+          "oklch": "oklch(0.76 0.11 85)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#b38e3a",
+          "oklch": "oklch(0.665 0.11 85)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#957323",
+          "oklch": "oklch(0.575 0.104 85)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#745917",
+          "oklch": "oklch(0.48 0.088 85)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#513e11",
+          "oklch": "oklch(0.375 0.066 85)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb5ab",
+          "oklch": "oklch(0.84 0.088 28)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff8b7d",
+          "oklch": "oklch(0.76 0.143 28)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e16b5e",
+          "oklch": "oklch(0.665 0.15 28)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#be5247",
+          "oklch": "oklch(0.575 0.142 28)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#963e35",
+          "oklch": "oklch(0.48 0.12 28)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#692b25",
+          "oklch": "oklch(0.375 0.09 28)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#abcff0",
+          "oklch": "oklch(0.84 0.06 245)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#86b7e1",
+          "oklch": "oklch(0.76 0.08 245)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#6999c2",
+          "oklch": "oklch(0.665 0.08 245)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#517ea3",
+          "oklch": "oklch(0.575 0.076 245)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#3e6180",
+          "oklch": "oklch(0.48 0.064 245)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#2b4459",
+          "oklch": "oklch(0.375 0.048 245)"
+        }
+      ]
+    },
+    "scrim": {
+      "token": "--scrim-70",
+      "hex": "#131211b3",
+      "oklch": "oklch(0.182 0.002 70 / 0.7)"
+    },
+    "aura": {
+      "id": "main",
+      "name": "Urushi",
+      "colours": [
+        {
+          "slot": 1,
+          "name": "Cinnabar",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-1-300",
+              "hex": "#ffb6a7",
+              "oklch": "oklch(0.84 0.088 32)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-1-500",
+              "hex": "#f1735c",
+              "oklch": "oklch(0.7 0.16 32)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-1-700",
+              "hex": "#9f4231",
+              "oklch": "oklch(0.5 0.128 32)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-1-warm",
+              "hex": "#e87f25",
+              "oklch": "oklch(0.7 0.16 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-1-cool",
+              "hex": "#e770a9",
+              "oklch": "oklch(0.7 0.16 352)"
+            }
+          ]
+        },
+        {
+          "slot": 2,
+          "name": "Gold leaf",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-2-300",
+              "hex": "#e0c895",
+              "oklch": "oklch(0.84 0.072 85)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-2-500",
+              "hex": "#c1983a",
+              "oklch": "oklch(0.7 0.12 85)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-2-700",
+              "hex": "#7c5e11",
+              "oklch": "oklch(0.5 0.096 85)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-2-warm",
+              "hex": "#d78951",
+              "oklch": "oklch(0.7 0.12 55)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-2-cool",
+              "hex": "#8dab54",
+              "oklch": "oklch(0.7 0.12 125)"
+            }
+          ]
+        },
+        {
+          "slot": 3,
+          "name": "Aogai",
+          "steps": [
+            {
+              "step": 300,
+              "token": "--aura-main-3-300",
+              "hex": "#c2c6f9",
+              "oklch": "oklch(0.84 0.072 282)"
+            },
+            {
+              "step": 500,
+              "token": "--aura-main-3-500",
+              "hex": "#9394e7",
+              "oklch": "oklch(0.7 0.12 282)"
+            },
+            {
+              "step": 700,
+              "token": "--aura-main-3-700",
+              "hex": "#5b5b98",
+              "oklch": "oklch(0.5 0.096 282)"
+            },
+            {
+              "step": "warm",
+              "token": "--aura-main-3-warm",
+              "hex": "#c184cb",
+              "oklch": "oklch(0.7 0.12 322)"
+            },
+            {
+              "step": "cool",
+              "token": "--aura-main-3-cool",
+              "hex": "#52a7e2",
+              "oklch": "oklch(0.7 0.12 242)"
+            }
+          ]
+        }
+      ]
+    },
+    "auraAlt": [
+      {
+        "id": "alt-a",
+        "name": "Kintsugi",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Gold seam",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-1-300",
+                "hex": "#e0c895",
+                "oklch": "oklch(0.84 0.072 85)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-1-500",
+                "hex": "#c1983a",
+                "oklch": "oklch(0.7 0.12 85)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-1-700",
+                "hex": "#7c5e11",
+                "oklch": "oklch(0.5 0.096 85)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-1-warm",
+                "hex": "#d78951",
+                "oklch": "oklch(0.7 0.12 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-1-cool",
+                "hex": "#8dab54",
+                "oklch": "oklch(0.7 0.12 125)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Celadon",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-2-300",
+                "hex": "#b2d4c4",
+                "oklch": "oklch(0.84 0.042 165)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-2-500",
+                "hex": "#74ad94",
+                "oklch": "oklch(0.7 0.07 165)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-2-700",
+                "hex": "#436e5b",
+                "oklch": "oklch(0.5 0.056 165)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-2-warm",
+                "hex": "#94a676",
+                "oklch": "oklch(0.7 0.07 125)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-2-cool",
+                "hex": "#67abb3",
+                "oklch": "oklch(0.7 0.07 205)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Clay",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-a-3-300",
+                "hex": "#e3c3b3",
+                "oklch": "oklch(0.84 0.042 48)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-a-3-500",
+                "hex": "#c39279",
+                "oklch": "oklch(0.7 0.07 48)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-a-3-700",
+                "hex": "#7e5a47",
+                "oklch": "oklch(0.5 0.056 48)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-a-3-warm",
+                "hex": "#c19375",
+                "oklch": "oklch(0.7 0.07 55)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-a-3-cool",
+                "hex": "#c58d96",
+                "oklch": "oklch(0.7 0.07 8)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "alt-b",
+        "name": "Raden",
+        "colours": [
+          {
+            "slot": 1,
+            "name": "Abalone pink",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-1-300",
+                "hex": "#eabbd0",
+                "oklch": "oklch(0.84 0.06 350)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-1-500",
+                "hex": "#ce84a7",
+                "oklch": "oklch(0.7 0.1 350)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-1-700",
+                "hex": "#85506a",
+                "oklch": "oklch(0.5 0.08 350)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-1-warm",
+                "hex": "#d58679",
+                "oklch": "oklch(0.7 0.1 30)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-1-cool",
+                "hex": "#b28dcd",
+                "oklch": "oklch(0.7 0.1 310)"
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "name": "Abalone green",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-2-300",
+                "hex": "#a4d8c5",
+                "oklch": "oklch(0.84 0.06 170)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-2-500",
+                "hex": "#55b395",
+                "oklch": "oklch(0.7 0.1 170)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-2-700",
+                "hex": "#2a725c",
+                "oklch": "oklch(0.5 0.08 170)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-2-warm",
+                "hex": "#8aab67",
+                "oklch": "oklch(0.7 0.1 130)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-2-cool",
+                "hex": "#43afc1",
+                "oklch": "oklch(0.7 0.1 210)"
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "name": "Abalone blue",
+            "steps": [
+              {
+                "step": 300,
+                "token": "--aura-alt-b-3-300",
+                "hex": "#a4d1f2",
+                "oklch": "oklch(0.84 0.066 240)"
+              },
+              {
+                "step": 500,
+                "token": "--aura-alt-b-3-500",
+                "hex": "#58a7dc",
+                "oklch": "oklch(0.7 0.11 240)"
+              },
+              {
+                "step": 700,
+                "token": "--aura-alt-b-3-700",
+                "hex": "#2d6990",
+                "oklch": "oklch(0.5 0.088 240)"
+              },
+              {
+                "step": "warm",
+                "token": "--aura-alt-b-3-warm",
+                "hex": "#9196e2",
+                "oklch": "oklch(0.7 0.11 280)"
+              },
+              {
+                "step": "cool",
+                "token": "--aura-alt-b-3-cool",
+                "hex": "#50a9d9",
+                "oklch": "oklch(0.7 0.11 235)"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "identity": [
+      {
+        "n": 1,
+        "name": "Gold",
+        "fill": {
+          "token": "--hue-1-fill",
+          "hex": "#41351a",
+          "oklch": "oklch(0.335 0.045 85)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#e9cf9a",
+          "oklch": "oklch(0.865 0.075 85)"
+        },
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#c1a057",
+          "oklch": "oklch(0.72 0.1 85)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Persimmon",
+        "fill": {
+          "token": "--hue-2-fill",
+          "hex": "#48311f",
+          "oklch": "oklch(0.335 0.045 58)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#f9c7a2",
+          "oklch": "oklch(0.865 0.075 58)"
+        },
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#d49564",
+          "oklch": "oklch(0.72 0.1 58)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Celadon",
+        "fill": {
+          "token": "--hue-3-fill",
+          "hex": "#263d30",
+          "oklch": "oklch(0.335 0.036 160)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#b1dfc5",
+          "oklch": "oklch(0.865 0.06 160)"
+        },
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#77b493",
+          "oklch": "oklch(0.72 0.08 160)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Indigo",
+        "fill": {
+          "token": "--hue-4-fill",
+          "hex": "#27384b",
+          "oklch": "oklch(0.335 0.04 250)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#b2d7fe",
+          "oklch": "oklch(0.865 0.067 250)"
+        },
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#79a9db",
+          "oklch": "oklch(0.72 0.09 250)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Aogai",
+        "fill": {
+          "token": "--hue-5-fill",
+          "hex": "#34334d",
+          "oklch": "oklch(0.335 0.045 285)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#cdcdff",
+          "oklch": "oklch(0.865 0.069 285)"
+        },
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#9e9ce1",
+          "oklch": "oklch(0.72 0.1 285)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Plum",
+        "fill": {
+          "token": "--hue-6-fill",
+          "hex": "#442f3f",
+          "oklch": "oklch(0.335 0.04 335)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#efc3e4",
+          "oklch": "oklch(0.865 0.067 335)"
+        },
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#c88fbb",
+          "oklch": "oklch(0.72 0.09 335)"
+        }
+      }
+    ],
+    "semantic": {}
+  }
+]

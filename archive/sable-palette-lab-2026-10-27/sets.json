@@ -1,0 +1,1240 @@
+[
+  {
+    "id": "warm",
+    "name": "Warm",
+    "idea": "Late sun through a window: apricot and peach glow, with Mariia's butter yellow at the bright heart of it.",
+    "trio": "Butter · Apricot · Peach",
+    "accent": {
+      "name": "Apricot",
+      "slot": 1
+    },
+    "greys": "Warm greys",
+    "aura": [
+      {
+        "slot": 1,
+        "name": "Apricot",
+        "token": "--aura-1",
+        "hex": "#fda856",
+        "oklch": "oklch(0.8 0.14 62)"
+      },
+      {
+        "slot": 2,
+        "name": "Peach",
+        "token": "--aura-2",
+        "hex": "#f98a74",
+        "oklch": "oklch(0.75 0.14 32)"
+      },
+      {
+        "slot": 3,
+        "name": "Butter",
+        "token": "--aura-3",
+        "hex": "#fdd46d",
+        "oklch": "oklch(0.885 0.13 88)",
+        "anchor": {
+          "hex": "#EDDA9C",
+          "note": "Mariia's swatch, oklch(0.889 0.082 93). Same lightness, hue 5° warmer, chroma 0.13: at 35% over black or grey cloud the swatch value turns khaki; this stays golden butter. It sits in the centre blob, where it overlaps apricot — on an edge blob any butter dims to olive."
+        }
+      }
+    ],
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f5f3f1",
+          "oklch": "oklch(0.965 0.003 60)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e8e6e3",
+          "oklch": "oklch(0.925 0.004 60)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d6d2cf",
+          "oklch": "oklch(0.865 0.006 60)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#beb9b6",
+          "oklch": "oklch(0.79 0.007 60)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#a49f9a",
+          "oklch": "oklch(0.705 0.009 60)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#7a736e",
+          "oklch": "oklch(0.56 0.011 60)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#5f5853",
+          "oklch": "oklch(0.465 0.012 60)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#453e39",
+          "oklch": "oklch(0.37 0.012 60)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#302a25",
+          "oklch": "oklch(0.29 0.012 60)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#27221d",
+          "oklch": "oklch(0.255 0.012 60)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#1f1a16",
+          "oklch": "oklch(0.222 0.011 60)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#fff3e8",
+          "oklch": "oklch(0.97 0.019 62)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#ffe2ca",
+          "oklch": "oklch(0.93 0.045 62)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#ffcea5",
+          "oklch": "oklch(0.885 0.077 62)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#ffbc82",
+          "oklch": "oklch(0.845 0.107 62)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#fda856",
+          "oklch": "oklch(0.8 0.14 62)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#db8833",
+          "oklch": "oklch(0.7 0.14 62)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#b76b11",
+          "oklch": "oklch(0.6 0.133 62)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#8c4f02",
+          "oklch": "oklch(0.49 0.112 62)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#613605",
+          "oklch": "oklch(0.38 0.084 62)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#3e2001",
+          "oklch": "oklch(0.28 0.063 62)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#a4dab5",
+          "oklch": "oklch(0.84 0.075 155)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#7bc495",
+          "oklch": "oklch(0.76 0.1 155)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#5ea679",
+          "oklch": "oklch(0.665 0.1 155)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#468960",
+          "oklch": "oklch(0.575 0.095 155)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#346b49",
+          "oklch": "oklch(0.48 0.08 155)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#244a33",
+          "oklch": "oklch(0.375 0.06 155)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#e6c686",
+          "oklch": "oklch(0.84 0.09 85)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#d4ab4f",
+          "oklch": "oklch(0.76 0.12 85)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#b58d2d",
+          "oklch": "oklch(0.665 0.12 85)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#977311",
+          "oklch": "oklch(0.575 0.113 85)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#765806",
+          "oklch": "oklch(0.48 0.096 85)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#523d08",
+          "oklch": "oklch(0.375 0.072 85)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb4b1",
+          "oklch": "oklch(0.84 0.087 22)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff8987",
+          "oklch": "oklch(0.76 0.143 22)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e16969",
+          "oklch": "oklch(0.665 0.15 22)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#be5052",
+          "oklch": "oklch(0.575 0.142 22)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#963d3e",
+          "oklch": "oklch(0.48 0.12 22)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#692a2b",
+          "oklch": "oklch(0.375 0.09 22)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#a8d1ee",
+          "oklch": "oklch(0.84 0.06 240)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#82b8df",
+          "oklch": "oklch(0.76 0.08 240)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#659bc0",
+          "oklch": "oklch(0.665 0.08 240)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#4d7fa1",
+          "oklch": "oklch(0.575 0.076 240)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#3a627e",
+          "oklch": "oklch(0.48 0.064 240)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#284458",
+          "oklch": "oklch(0.375 0.048 240)"
+        }
+      ]
+    },
+    "identity": [
+      {
+        "n": 1,
+        "name": "Butter",
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#efd279",
+          "oklch": "oklch(0.87 0.114 92)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Apricot",
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#f7b571",
+          "oklch": "oklch(0.82 0.114 66)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Peach",
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#ffae8b",
+          "oklch": "oklch(0.82 0.107 44)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Rose",
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#f8a8cb",
+          "oklch": "oklch(0.82 0.103 352)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Sage",
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#a5d39a",
+          "oklch": "oklch(0.82 0.092 140)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Dusk",
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#96c9fe",
+          "oklch": "oklch(0.82 0.092 250)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#15110e",
+          "oklch": "oklch(0.182 0.01 60)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "cool",
+    "name": "Cool",
+    "idea": "Blue hour: periwinkle sky, lavender at its edge, cornflower where it deepens.",
+    "trio": "Lavender · Periwinkle · Cornflower",
+    "accent": {
+      "name": "Periwinkle",
+      "slot": 1
+    },
+    "greys": "Cool greys",
+    "aura": [
+      {
+        "slot": 1,
+        "name": "Periwinkle",
+        "token": "--aura-1",
+        "hex": "#9694f6",
+        "oklch": "oklch(0.71 0.14 283)"
+      },
+      {
+        "slot": 2,
+        "name": "Lavender",
+        "token": "--aura-2",
+        "hex": "#c3a1dc",
+        "oklch": "oklch(0.76 0.09 310)",
+        "anchor": {
+          "hex": "#B7A7C8",
+          "note": "Pantone Lavender Oil, oklch(0.753 0.05 307). Same lightness, hue 3° pinker, chroma 0.09: at the swatch chroma (0.05) the blob reads plain grey over the photos."
+        }
+      },
+      {
+        "slot": 3,
+        "name": "Cornflower",
+        "token": "--aura-3",
+        "hex": "#74aef5",
+        "oklch": "oklch(0.74 0.12 254)"
+      }
+    ],
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f2f3f6",
+          "oklch": "oklch(0.965 0.004 268)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e5e6ea",
+          "oklch": "oklch(0.925 0.005 268)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d0d2d7",
+          "oklch": "oklch(0.865 0.007 268)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#b8bac0",
+          "oklch": "oklch(0.79 0.009 268)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#9da0a7",
+          "oklch": "oklch(0.705 0.011 268)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#71747c",
+          "oklch": "oklch(0.56 0.013 268)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#565962",
+          "oklch": "oklch(0.465 0.014 268)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#3c4047",
+          "oklch": "oklch(0.37 0.014 268)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#282b33",
+          "oklch": "oklch(0.29 0.014 268)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#20232a",
+          "oklch": "oklch(0.255 0.014 268)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#181b21",
+          "oklch": "oklch(0.222 0.013 268)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#f3f4ff",
+          "oklch": "oklch(0.97 0.014 283)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#e4e6ff",
+          "oklch": "oklch(0.93 0.034 283)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#d3d5ff",
+          "oklch": "oklch(0.885 0.057 283)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#c4c6ff",
+          "oklch": "oklch(0.845 0.079 283)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#9f9eff",
+          "oklch": "oklch(0.74 0.138 283)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#9391f2",
+          "oklch": "oklch(0.7 0.14 283)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#7674cc",
+          "oklch": "oklch(0.6 0.133 283)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#58569e",
+          "oklch": "oklch(0.49 0.114 283)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#3d3b6d",
+          "oklch": "oklch(0.38 0.084 283)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#252447",
+          "oklch": "oklch(0.28 0.063 283)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#a0daba",
+          "oklch": "oklch(0.84 0.075 160)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#75c59b",
+          "oklch": "oklch(0.76 0.1 160)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#57a77e",
+          "oklch": "oklch(0.665 0.1 160)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#3f8a65",
+          "oklch": "oklch(0.575 0.095 160)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#2f6b4e",
+          "oklch": "oklch(0.48 0.08 160)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#214b36",
+          "oklch": "oklch(0.375 0.06 160)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#eac586",
+          "oklch": "oklch(0.84 0.09 80)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#d9a850",
+          "oklch": "oklch(0.76 0.12 80)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#ba8a2e",
+          "oklch": "oklch(0.665 0.12 80)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#9b7014",
+          "oklch": "oklch(0.575 0.113 80)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#7a5609",
+          "oklch": "oklch(0.48 0.096 80)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#553c09",
+          "oklch": "oklch(0.375 0.072 80)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb4b5",
+          "oklch": "oklch(0.84 0.088 18)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff898e",
+          "oklch": "oklch(0.76 0.143 18)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e06870",
+          "oklch": "oklch(0.665 0.15 18)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#be5058",
+          "oklch": "oklch(0.575 0.142 18)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#953c43",
+          "oklch": "oklch(0.48 0.12 18)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#692a2f",
+          "oklch": "oklch(0.375 0.09 18)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#a0d2f0",
+          "oklch": "oklch(0.84 0.067 235)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#76bbe2",
+          "oklch": "oklch(0.76 0.09 235)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#589dc3",
+          "oklch": "oklch(0.665 0.09 235)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#4181a4",
+          "oklch": "oklch(0.575 0.085 235)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#306480",
+          "oklch": "oklch(0.48 0.072 235)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#21465a",
+          "oklch": "oklch(0.375 0.054 235)"
+        }
+      ]
+    },
+    "identity": [
+      {
+        "n": 1,
+        "name": "Lavender",
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#d6b3f9",
+          "oklch": "oklch(0.82 0.103 307)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Periwinkle",
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#bbbdff",
+          "oklch": "oklch(0.82 0.092 283)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Cornflower",
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#9dc7ff",
+          "oklch": "oklch(0.82 0.091 256)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Mist",
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#79d4e9",
+          "oklch": "oklch(0.82 0.092 215)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Orchid",
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#eeabdf",
+          "oklch": "oklch(0.82 0.103 335)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Sand",
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#f1c689",
+          "oklch": "oklch(0.85 0.092 75)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#101217",
+          "oklch": "oklch(0.182 0.012 268)"
+        }
+      }
+    ]
+  },
+  {
+    "id": "neutral",
+    "name": "Neutral",
+    "idea": "Sea glass on grey stone: seafoam, aqua and sky, with greys that carry no temperature at all.",
+    "trio": "Seafoam · Aqua · Sky",
+    "accent": {
+      "name": "Aqua",
+      "slot": 1
+    },
+    "greys": "True greys",
+    "aura": [
+      {
+        "slot": 1,
+        "name": "Aqua",
+        "token": "--aura-1",
+        "hex": "#3fd1d9",
+        "oklch": "oklch(0.79 0.12 200)"
+      },
+      {
+        "slot": 2,
+        "name": "Sky",
+        "token": "--aura-2",
+        "hex": "#55bef0",
+        "oklch": "oklch(0.76 0.12 232)"
+      },
+      {
+        "slot": 3,
+        "name": "Seafoam",
+        "token": "--aura-3",
+        "hex": "#73dbb9",
+        "oklch": "oklch(0.82 0.11 170)"
+      }
+    ],
+    "ramps": {
+      "neutral": [
+        {
+          "step": 50,
+          "token": "--ink-50",
+          "hex": "#f3f3f3",
+          "oklch": "oklch(0.965 0 0)"
+        },
+        {
+          "step": 100,
+          "token": "--ink-100",
+          "hex": "#e6e6e6",
+          "oklch": "oklch(0.925 0 0)"
+        },
+        {
+          "step": 200,
+          "token": "--ink-200",
+          "hex": "#d2d2d2",
+          "oklch": "oklch(0.865 0 0)"
+        },
+        {
+          "step": 300,
+          "token": "--ink-300",
+          "hex": "#bababa",
+          "oklch": "oklch(0.79 0 0)"
+        },
+        {
+          "step": 400,
+          "token": "--ink-400",
+          "hex": "#a0a0a0",
+          "oklch": "oklch(0.705 0 0)"
+        },
+        {
+          "step": 500,
+          "token": "--ink-500",
+          "hex": "#747474",
+          "oklch": "oklch(0.56 0 0)"
+        },
+        {
+          "step": 600,
+          "token": "--ink-600",
+          "hex": "#595959",
+          "oklch": "oklch(0.465 0 0)"
+        },
+        {
+          "step": 700,
+          "token": "--ink-700",
+          "hex": "#404040",
+          "oklch": "oklch(0.37 0 0)"
+        },
+        {
+          "step": 800,
+          "token": "--ink-800",
+          "hex": "#2b2b2b",
+          "oklch": "oklch(0.29 0 0)"
+        },
+        {
+          "step": 850,
+          "token": "--ink-850",
+          "hex": "#232323",
+          "oklch": "oklch(0.255 0 0)"
+        },
+        {
+          "step": 900,
+          "token": "--ink-900",
+          "hex": "#1b1b1b",
+          "oklch": "oklch(0.222 0 0)"
+        },
+        {
+          "step": 950,
+          "token": "--ink-950",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      ],
+      "accent": [
+        {
+          "step": 50,
+          "token": "--copper-50",
+          "hex": "#e6fafb",
+          "oklch": "oklch(0.97 0.021 200)"
+        },
+        {
+          "step": 100,
+          "token": "--copper-100",
+          "hex": "#c9f1f3",
+          "oklch": "oklch(0.93 0.041 200)"
+        },
+        {
+          "step": 200,
+          "token": "--copper-200",
+          "hex": "#a0e8ec",
+          "oklch": "oklch(0.885 0.072 200)"
+        },
+        {
+          "step": 300,
+          "token": "--copper-300",
+          "hex": "#71e0e6",
+          "oklch": "oklch(0.845 0.102 200)"
+        },
+        {
+          "step": 400,
+          "token": "--copper-400",
+          "hex": "#43d5dc",
+          "oklch": "oklch(0.8 0.12 200)"
+        },
+        {
+          "step": 500,
+          "token": "--copper-500",
+          "hex": "#00b4bb",
+          "oklch": "oklch(0.7 0.119 200)"
+        },
+        {
+          "step": 600,
+          "token": "--copper-600",
+          "hex": "#009298",
+          "oklch": "oklch(0.6 0.102 200)"
+        },
+        {
+          "step": 700,
+          "token": "--copper-700",
+          "hex": "#016e73",
+          "oklch": "oklch(0.49 0.083 200)"
+        },
+        {
+          "step": 800,
+          "token": "--copper-800",
+          "hex": "#024c50",
+          "oklch": "oklch(0.38 0.064 200)"
+        },
+        {
+          "step": 900,
+          "token": "--copper-900",
+          "hex": "#013032",
+          "oklch": "oklch(0.28 0.047 200)"
+        }
+      ],
+      "success": [
+        {
+          "step": 300,
+          "token": "--moss-300",
+          "hex": "#a5daaf",
+          "oklch": "oklch(0.84 0.082 150)"
+        },
+        {
+          "step": 400,
+          "token": "--moss-400",
+          "hex": "#7cc58c",
+          "oklch": "oklch(0.76 0.11 150)"
+        },
+        {
+          "step": 500,
+          "token": "--moss-500",
+          "hex": "#5ea76f",
+          "oklch": "oklch(0.665 0.11 150)"
+        },
+        {
+          "step": 600,
+          "token": "--moss-600",
+          "hex": "#478a57",
+          "oklch": "oklch(0.575 0.104 150)"
+        },
+        {
+          "step": 700,
+          "token": "--moss-700",
+          "hex": "#356b42",
+          "oklch": "oklch(0.48 0.088 150)"
+        },
+        {
+          "step": 800,
+          "token": "--moss-800",
+          "hex": "#254b2e",
+          "oklch": "oklch(0.375 0.066 150)"
+        }
+      ],
+      "warning": [
+        {
+          "step": 300,
+          "token": "--ochre-300",
+          "hex": "#f0c282",
+          "oklch": "oklch(0.84 0.097 75)"
+        },
+        {
+          "step": 400,
+          "token": "--ochre-400",
+          "hex": "#e1a447",
+          "oklch": "oklch(0.76 0.13 75)"
+        },
+        {
+          "step": 500,
+          "token": "--ochre-500",
+          "hex": "#c28621",
+          "oklch": "oklch(0.665 0.13 75)"
+        },
+        {
+          "step": 600,
+          "token": "--ochre-600",
+          "hex": "#a26d01",
+          "oklch": "oklch(0.575 0.121 75)"
+        },
+        {
+          "step": 700,
+          "token": "--ochre-700",
+          "hex": "#7e5401",
+          "oklch": "oklch(0.48 0.101 75)"
+        },
+        {
+          "step": 800,
+          "token": "--ochre-800",
+          "hex": "#593a02",
+          "oklch": "oklch(0.375 0.078 75)"
+        }
+      ],
+      "danger": [
+        {
+          "step": 300,
+          "token": "--brick-300",
+          "hex": "#ffb5ae",
+          "oklch": "oklch(0.84 0.087 25)"
+        },
+        {
+          "step": 400,
+          "token": "--brick-400",
+          "hex": "#ff8a82",
+          "oklch": "oklch(0.76 0.143 25)"
+        },
+        {
+          "step": 500,
+          "token": "--brick-500",
+          "hex": "#e16a63",
+          "oklch": "oklch(0.665 0.15 25)"
+        },
+        {
+          "step": 600,
+          "token": "--brick-600",
+          "hex": "#be514c",
+          "oklch": "oklch(0.575 0.142 25)"
+        },
+        {
+          "step": 700,
+          "token": "--brick-700",
+          "hex": "#963d3a",
+          "oklch": "oklch(0.48 0.12 25)"
+        },
+        {
+          "step": 800,
+          "token": "--brick-800",
+          "hex": "#692b28",
+          "oklch": "oklch(0.375 0.09 25)"
+        }
+      ],
+      "info": [
+        {
+          "step": 300,
+          "token": "--slate-300",
+          "hex": "#aacff5",
+          "oklch": "oklch(0.84 0.067 250)"
+        },
+        {
+          "step": 400,
+          "token": "--slate-400",
+          "hex": "#85b6e9",
+          "oklch": "oklch(0.76 0.09 250)"
+        },
+        {
+          "step": 500,
+          "token": "--slate-500",
+          "hex": "#6898c9",
+          "oklch": "oklch(0.665 0.09 250)"
+        },
+        {
+          "step": 600,
+          "token": "--slate-600",
+          "hex": "#517ca9",
+          "oklch": "oklch(0.575 0.085 250)"
+        },
+        {
+          "step": 700,
+          "token": "--slate-700",
+          "hex": "#3d6085",
+          "oklch": "oklch(0.48 0.072 250)"
+        },
+        {
+          "step": 800,
+          "token": "--slate-800",
+          "hex": "#2a435d",
+          "oklch": "oklch(0.375 0.054 250)"
+        }
+      ]
+    },
+    "identity": [
+      {
+        "n": 1,
+        "name": "Seafoam",
+        "solid": {
+          "token": "--hue-1",
+          "hex": "#78dabc",
+          "oklch": "oklch(0.82 0.103 172)"
+        },
+        "text": {
+          "token": "--hue-1-text",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      },
+      {
+        "n": 2,
+        "name": "Aqua",
+        "solid": {
+          "token": "--hue-2",
+          "hex": "#67d8de",
+          "oklch": "oklch(0.82 0.103 200)"
+        },
+        "text": {
+          "token": "--hue-2-text",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      },
+      {
+        "n": 3,
+        "name": "Sky",
+        "solid": {
+          "token": "--hue-3",
+          "hex": "#77d1f9",
+          "oklch": "oklch(0.82 0.103 228)"
+        },
+        "text": {
+          "token": "--hue-3-text",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      },
+      {
+        "n": 4,
+        "name": "Slate violet",
+        "solid": {
+          "token": "--hue-4",
+          "hex": "#b8beff",
+          "oklch": "oklch(0.82 0.091 280)"
+        },
+        "text": {
+          "token": "--hue-4-text",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      },
+      {
+        "n": 5,
+        "name": "Clay",
+        "solid": {
+          "token": "--hue-5",
+          "hex": "#f4b48d",
+          "oklch": "oklch(0.82 0.092 52)"
+        },
+        "text": {
+          "token": "--hue-5-text",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      },
+      {
+        "n": 6,
+        "name": "Moss",
+        "solid": {
+          "token": "--hue-6",
+          "hex": "#b0d191",
+          "oklch": "oklch(0.82 0.092 130)"
+        },
+        "text": {
+          "token": "--hue-6-text",
+          "hex": "#121212",
+          "oklch": "oklch(0.182 0 0)"
+        }
+      }
+    ]
+  }
+]
