@@ -77,9 +77,9 @@ reader scrolls up, the animation writes the position back down, and the page
 appears to be stuck. An animation that argues with the hand on the wheel is
 worse than no animation.
 
-A `wheel`, a `touchstart` or a scrolling key (arrows, page up/down, home, end,
-space — unless the reader is typing in a field) ends the animation
-immediately, wherever it has got to.
+A `wheel`, a `touchstart` or a scrolling key (up and down arrows, page
+up/down, home, end, space — unless the reader is typing in a field) ends the
+animation immediately, wherever it has got to.
 
 ### And three smaller ones
 
@@ -91,8 +91,8 @@ toward a target the next frame moves again; the page crawls and arrives late,
 or does not arrive. Every scroll here passes `behavior: "instant"` to opt out
 of the CSS property for that call.
 
-**The URL and the Back button.** Syncing the fragment as the page moves is
-right — the address bar should describe what is on screen. Doing it with
+**The URL and the Back button.** Pointing the fragment at the target is
+right — the address bar should describe where the reader asked to go. Doing it with
 `pushState` is not: a nav with six anchors leaves six entries the reader has
 to press Back through one at a time to leave the page. This uses
 `replaceState`, and passes `history.state` back through rather than replacing
@@ -111,8 +111,12 @@ teleport the page the instant the animation started.
 
 ## Install
 
+It is not on npm yet. Until it is, build it from this repository and depend
+on it by path:
+
 ```sh
-npm install target-scroll
+cd workbench/packages/target-scroll && npm install && npm run build
+cd your-app && npm install ../workbench/packages/target-scroll
 ```
 
 No dependencies. React is an optional peer dependency, used only by the
@@ -171,7 +175,7 @@ function Nav() {
 
   return (
     <nav>
-      {/* Renders <a href="/#work">. Scrolls on the page that has #work,
+      {/* Renders <a href="/#work">. Scrolls on a page that has #work,
           navigates on every other page. */}
       <ScrollLink href="/#work">Work</ScrollLink>
       <ScrollLink href="/#about">About</ScrollLink>
@@ -323,8 +327,8 @@ allowed.
 
 ### The core is framework-agnostic; React is one entry point
 
-This is DOM work against `window`. The React entry is under a hundred lines:
-a hook that memoises two closures, and a component that renders an anchor with
+This is DOM work against `window`. The React entry is a hook and a component:
+a hook that memoises the scroller, and a component that renders an anchor with
 an `onClick`. So the core imports no React, and React is an optional peer
 dependency.
 
@@ -367,41 +371,54 @@ it.
 
 ---
 
-## Limitations
+## What it will not do
 
-**The window is the only scroll container.** An element inside an
-`overflow: auto` panel is measured against the viewport, so the page scrolls
-instead of the panel. Supporting containers means a second measurement path, a
-second listener set and a second set of failure modes, and the anchor-nav case
-this exists for lives on the page. If you need it inside a panel, you need a
-different library.
-
-**Horizontal scrolling is not handled.** The vertical position is animated and
-the horizontal one is left where it is.
-
-**The target position is measured once, at activation.** If the document
-reflows during the animation — an image above the fold finishing its decode, a
-font swapping, a lazily rendered section expanding — the page arrives where
-the target *was*. Recomputing every frame sounds like the fix and is not: the
-distance changing under the easing produces a scroll that visibly speeds up and
-slows down. Reserve space for late content, which you want to do anyway.
-
-**A browser without `behavior: "instant"` can still be caught by
-`scroll-behavior: smooth`.** The value is a dictionary enum, so browsers that
-predate it (Safari < 15.4) throw rather than ignore it, and the fallback is the
-two-argument `scrollTo`, which the CSS property applies to. There is no way to
-opt out per-call on those versions.
-
-**`prefers-reduced-motion` is read per activation, not watched.** Changing the
-OS setting mid-animation does not stop the one in flight. The next activation
-sees the new value.
-
-**Cross-document navigation is not this library's problem.** A link to a
-section on another page is left to the browser or the router; when the new
-document loads, the browser's own hash handling applies, and this library is
-not involved. If that landing position needs the same header offset, set
-`scroll-margin-top` in CSS — which is the case for reading it here rather than
-inventing a parallel offset.
+- **Scroll anything but the window.** An element inside an `overflow: auto`
+  panel is measured against the viewport, so the page scrolls instead of the
+  panel. Supporting containers means a second measurement path, a second
+  listener set and a second set of failure modes, and the anchor-nav case
+  this exists for lives on the page. If you need it inside a panel, you need
+  a different library.
+- **Scroll sideways.** The vertical position is animated and the horizontal
+  one is left where it is.
+- **Follow a target that moves.** The position is measured once, at
+  activation. If the document reflows during the animation — an image above
+  the fold finishing its decode, a font swapping, a lazily rendered section
+  expanding — the page arrives where the target *was*. Recomputing every
+  frame sounds like the fix and is not: the distance changing under the
+  easing produces a scroll that visibly speeds up and slows down. Reserve
+  space for late content, which you want to do anyway.
+- **Give way to a dragged scrollbar.** Wheel, touch and the scroll keys end
+  the animation; a scrollbar dragged with the mouse, or a middle-click
+  autoscroll, sends none of those, so the animation keeps writing the
+  position until it arrives — at most 640ms with the default duration.
+- **Watch frames after the first.** The watchdog waits for the first frame
+  only. If frames stop after that — a tab sent to the background mid-flight —
+  the page waits part-way and arrives in one step when frames resume.
+- **Opt out of `scroll-behavior: smooth` in a browser that does not know
+  `behavior: "instant"`.** The value is a dictionary enum, so a browser that
+  predates it throws rather than ignoring it (older Safari), and the fallback
+  is the two-argument `scrollTo`, which the CSS property applies to.
+- **Keep the URL in step with the page.** The fragment is written once, at
+  activation, and only from the target's `id`. Scroll by hand afterwards and
+  the URL still names the last target; scroll to a target with no `id` and
+  the previous fragment stays. There is no scroll-spy.
+- **Know which page it is on.** `scrollToTarget` and `<ScrollLink>` ask the
+  document whether the target is there, not whether the path matches.
+  `<ScrollLink href="/#work">` scrolls on any page that has a `#work` element,
+  not only on `/`. Give sections that repeat across pages distinct ids.
+- **Undo a focus move when the reader cancels.** Focus moves at activation
+  (see above), so a reader who stops the animation half way still has focus
+  on the destination.
+- **Watch `prefers-reduced-motion`.** It is read per activation. Changing the
+  OS setting mid-animation does not stop the one in flight; the next
+  activation sees the new value.
+- **Handle the landing on another page.** A link to a section on another page
+  is left to the browser or the router; when the new document loads, the
+  browser's own hash handling applies, and this library is not involved. If
+  that landing position needs the same header offset, set
+  `scroll-margin-top` in CSS — which is the case for reading it here rather
+  than inventing a parallel offset.
 
 ---
 

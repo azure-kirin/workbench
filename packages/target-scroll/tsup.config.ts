@@ -42,7 +42,7 @@ export default defineConfig([
        That pass drops module-level directives ("Module level directives cause
        errors when bundled"), and the React entry would arrive at a consumer's
        server component without the marker it needs. esbuild's own dead-code
-       elimination is all a fifty-line entry wants anyway.
+       elimination is all an entry this small wants anyway.
        test/build.test.ts asserts the directive is there, exactly once. */
     treeshake: false,
   },
