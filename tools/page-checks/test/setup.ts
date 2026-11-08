@@ -5,4 +5,6 @@
  * probe's fallback path — leave the colour string as the browser wrote it — is
  * exactly what these tests want to exercise.
  */
-HTMLCanvasElement.prototype.getContext = (() => null) as never;
+// The runner test runs in node, where there is no DOM to patch.
+if (typeof HTMLCanvasElement !== "undefined")
+  HTMLCanvasElement.prototype.getContext = (() => null) as never;

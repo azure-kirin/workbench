@@ -96,7 +96,11 @@ let merged: Config = config;
 if (configFile) {
   const module = await import(pathToFileURL(resolve(configFile)).href);
   const fromFile = (module.default ?? module) as Config;
-  merged = { ...fromFile, ...pruneUndefined(config) };
+  // A base URL left off the command line is "", which must not erase the file's.
+  merged = {
+    ...fromFile,
+    ...pruneUndefined({ ...config, baseUrl: config.baseUrl || undefined }),
+  } as Config;
 }
 if (!merged.baseUrl) {
   console.error("page-checks: a base URL is required. See --help.");

@@ -56,8 +56,13 @@ names what moved on its own, with masks for the loops that are meant to. The
 README is the failure log it was built from: plays, font swaps, popups taking
 focus, late content, late toasts.
 
-A set of build-time page checks is on a branch, and lands here once its README
-says plainly what it will not do.
+**[`tools/page-checks`](./tools/page-checks)** — five checks against a built
+site, each written down after it had gone wrong: a space swallowed at an
+inline tag in the served HTML, contrast for every colour pair a page actually
+renders, sideways scroll a reader can actually perform, console errors, and
+internal links and fragments that resolve. One binary, one exit code, and
+every check prints what it skipped. The README keeps the two checks that were
+cut, and why.
 
 ## Development
 
@@ -70,7 +75,8 @@ npm test        # builds first, then vitest
 ```
 
 The tools under `tools/` run from the project they check, with Playwright
-resolved from that project. `tools/self-motion` tests the same way, with
-`npm install` and `npm test` (`node --test`).
+resolved from that project. `tools/self-motion` (`node --test`) and
+`tools/page-checks` (vitest) test the same way, with `npm install` and
+`npm test`.
 
 MIT licensed.

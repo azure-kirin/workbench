@@ -11,22 +11,33 @@ the third month of doing that.
 npx page-checks http://localhost:3000
 ```
 
+Run against the fixture site in `test/fixtures/site`, which carries one seeded
+fault of each kind:
+
 ```
-page-checks · http://localhost:3000 · 10 pages
+page-checks · http://127.0.0.1:4789 · 3 pages
 
-glue     ✗ 3 glued boundaries
-           /guide:1 — no space at `</strong>i`
-             a record is <strong>immutable</strong>in the store, so a writer
-contrast ✗ 2 colour pairs below the threshold, on 7 text runs
-           #5a627f on #080a15 — 3.27:1, needs 4.5:1 ×6
-             e.g. p.meta on /about — "Remote"
-           (1005 text runs, 64 distinct colour pairs, 12 text runs skipped)
-overflow ✓ no horizontal scroll at 390 / 768 / 1440px
-console  ✗ 1 distinct console error on 9 pages
-           / — Failed to load resource: 404 — /_analytics/script.js ×9
-links    ✓ 145 internal links followed
+glue     ✗ 1 glued boundary
+           /:5 — no space at `</strong>o`
+             1"> <p>A record is <strong>immutable</strong>once it has been written.</p> <p clas
+           (3 documents scanned)
+contrast ✗ 1 colour pair below the threshold, on 1 text run
+           #777777 on #ffffff — 4.48:1, needs 4.5:1
+             e.g. p.meta on / — "Grey on white, just under the threshold."
+           (14 text runs, 4 distinct colour pairs)
+overflow ✗ 1 page/width combination scrolls sideways
+           / @390 — 210px of horizontal scroll
+console  ✗ 2 distinct console errors
+           / — boom — http://127.0.0.1:4789/
+           / — Failed to load resource: the server responded with a status of 404 (Not Found) — http://127.0.0.1:4789/missing.png
+links    ✗ 2 broken links
+           /gone — HTTP 404
+             linked from /
+           /guide#install — no element with that id on the target page
+             linked from /
+           (5 internal links followed)
 
-6 findings
+7 findings
 ```
 
 Exit code 1 if anything is found. That is the whole interface.
@@ -126,7 +137,7 @@ with the same exit code, in the same output, as the four checks next to it.
 
 Loads each page at each configured width, scrolls it top to bottom so anything
 lazy or on-scroll exists, then asks the document to scroll sideways and reads
-back how far it went.
+back how far it went. A viewport whose overflow is `hidden` scores zero first.
 
 **The failure.** The obvious measurement is
 `documentElement.scrollWidth - clientWidth`, and it produced a permanent false
@@ -134,9 +145,18 @@ positive on every page of the site this came from. That site uses
 `overflow-x: clip` on the root so that decorative layers extending past the
 viewport cannot create document scroll — which is what `clip` is for, and which
 still reports overflowing content in `scrollWidth`. A check that shouts on every
-page every time is a check that gets commented out. Asking the browser to
-actually scroll is the only measurement that answers the question the reader
-cares about.
+page every time is a check that gets commented out.
+
+Asking the browser to scroll is not the whole answer either, and the first
+version stopped there. `clip` or `hidden` on the root (or on `<body>`, when
+the root leaves it `visible`) is carried to the viewport, where it becomes
+`hidden` — and a hidden viewport still scrolls when a script asks, though no
+reader can. So the probe reads the viewport's overflow first and scores a
+hidden one zero, and only then scrolls. The scroll passes `behavior:
+"instant"`: under `html { scroll-behavior: smooth }` a bare `scrollTo` starts
+an animation and reads back 0, which passed a page that did scroll sideways.
+`test/run.test.ts` pins both, against a page with a clipped 3000px layer and
+a page with smooth scrolling.
 
 The reason to scroll the page first is separate and just as practical: entrance
 animations, lazy images and virtualised lists all mean the widest thing on the
@@ -210,8 +230,12 @@ package.
 
 ## Install
 
+It is not on npm yet. Until it is, build it from this repository and install
+it by path:
+
 ```sh
-npm install --save-dev page-checks playwright
+cd workbench/tools/page-checks && npm install && npm run build
+cd your-site && npm install --save-dev ../workbench/tools/page-checks playwright
 npx playwright install chromium
 ```
 
@@ -226,19 +250,20 @@ Node 18+.
 page-checks http://localhost:3000
 
 # or name the routes and stay on them
-page-checks http://localhost:3000 --routes /,/guide,/about --no-crawl
+page-checks http://localhost:3000 --routes /,/guide,/about
 ```
 
 | Flag | |
 |---|---|
-| `--routes <a,b,c>` | Paths to check. Default `/`, plus everything it links to. |
-| `--no-crawl` | Do not follow internal links out of the given routes. |
+| `--routes <a,b,c>` | Paths to check, and only those: named routes are not crawled unless a config sets `crawl: true`. Default `/`, plus everything it links to. |
+| `--no-crawl` | Do not follow internal links, even from the default `/`. |
 | `--max-pages <n>` | Ceiling on pages rendered. Default 50. |
 | `--viewports <w,w,w>` | Widths in px. Default `390,768,1440`. The widest is the one contrast and links are collected at. |
 | `--only <checks>` / `--skip <checks>` | `glue`, `contrast`, `overflow`, `console`, `links`. |
 | `--level AA\|AAA` | Contrast threshold. Default AA. |
 | `--follow-external` | Also request off-site links. |
-| `--config <file>` | A `.js`/`.mjs` module default-exporting a config. Flags win over it. |
+| `--config <file>` | A `.js`/`.mjs` module default-exporting a config, `baseUrl` included if you like. Flags win over it. |
+| `--no-colour` | Plain output. Colour is on only when stdout is a terminal. |
 | `--json` | The report as JSON on stdout. |
 
 ```js
@@ -318,42 +343,55 @@ is exercised end to end in jsdom against a fixture, with no browser involved.
 Applies to contrast pairs and to console errors, for the same reason: the
 quantity a reader needs is *how many distinct problems are there*, and the
 quantity a naive implementation reports is *how many times did I encounter one*.
-On the run that produced the sample output above, the two numbers were 6 and 32.
 
 ---
 
-## Limitations
+## What it will not do
 
-**Partial ancestor opacity is not modelled.** An ancestor with `opacity: 0`
-correctly hides its text from the check. An ancestor with `opacity: 0.5` reduces
-the effective contrast of everything inside it, and the probe ignores that.
-Modelling it properly means compositing the whole subtree as a group, which is
-more machinery than the case deserves; the result is that the check can be
-optimistic inside a faded container.
-
-**Backgrounds painted by anything other than an ancestor are invisible.** The
-background stack is the ancestor chain. A fixed decorative layer behind
-transparent content, a sibling positioned underneath, a `::before` overlay — the
-walk does not see them, and neither does any other static contrast checker. The
-answer is correct for the overwhelmingly common case of text on a surface on a
-canvas, and unreliable for text on top of a picture, which is why text on top of
-a picture is skipped rather than reported.
-
-**The contrast pass runs at one width.** The widest configured viewport. Colours
-that change with a media query at a narrower width are not seen. This is a
-deliberate trade — running the pass at every width triples the slowest part of
-the run to catch a case that is rare.
-
-**Crawling is bounded and breadth-first.** `--max-pages` exists because a
-crawler pointed at a site with pagination or a large archive will otherwise
-render all of it. If your site is bigger than the budget, name your routes.
-
-**A page that needs authentication cannot be reached.** There is no mechanism
-for cookies, headers or a login step. Point it at a build that serves its pages.
-
-**Console errors are only the ones that happen during a load and a scroll
-through.** Anything behind an interaction — a menu opening, a form submitting —
-is not exercised. This is a smoke check, not a test suite.
+- **Model partial opacity on an ancestor.** An ancestor at `opacity: 0`
+  hides its text from the check. An ancestor at `opacity: 0.5` lowers the
+  contrast of everything inside it, and the probe ignores that. Modelling it
+  means compositing the whole subtree as a group, which is more machinery
+  than the case deserves; inside a faded container the check can be
+  optimistic.
+- **See a background that is not an ancestor's.** The background stack is
+  the ancestor chain. A fixed decorative layer behind transparent content, a
+  sibling positioned underneath, a `::before` overlay — the walk does not see
+  them. The answer is right for text on a surface on a canvas, and unreliable
+  for text on a picture, which is why text on a picture is skipped rather
+  than reported.
+- **Measure text that is not a text node in an HTML element.** `::before` and
+  `::after` content, placeholders, `<input>` values and SVG text (painted by
+  `fill`, not `color`) are not judged.
+- **Judge text whose page has no opaque background and a dark
+  `color-scheme`.** The browser paints its own canvas there, and its colour
+  is not readable from the page. Those runs are counted as skipped.
+- **Run the contrast pass at more than one width.** It runs at the widest
+  viewport. Colours that change with a media query at a narrower width are
+  not seen — running the pass at every width multiplies the slowest part of
+  the run to catch a case that is rare.
+- **Find content a clipped root cuts off.** A page with `overflow-x: clip`
+  or `hidden` on the root scores zero for sideways scroll — the reader cannot
+  scroll it — so a real layout bug whose right edge is now cut off is not
+  reported. Nor is sideways scroll inside an element: a scroller there is
+  usually meant.
+- **Read prose that JavaScript renders.** The glue check reads the HTML the
+  server sent. A page rendered on the client sends an empty shell, and there
+  is nothing in it to scan.
+- **Flag a digit glued to a tag.** The glue check looks for letters, dashes
+  and quotation marks; `<em>v2</em>3` passes.
+- **Crawl everything.** Crawling is breadth-first and stops at `--max-pages`
+  (50) — a crawler pointed at pagination or an archive would otherwise
+  render all of it. If the site is bigger than the budget, name the routes.
+  `/guide` and `/guide/` are two pages to it.
+- **Log in.** There is no mechanism for cookies, headers or a login step.
+  Point it at a build that serves its pages.
+- **Catch errors behind an interaction, or a warning.** Console errors are
+  the ones logged during a load and a scroll through. A menu opening, a form
+  submitting, `console.warn` — none of it is seen. This is a smoke check, not
+  a test suite.
+- **Run in another engine.** It drives Chromium. A Safari-only overflow or a
+  Firefox-only console error is not seen.
 
 ---
 
@@ -361,12 +399,19 @@ is not exercised. This is a smoke check, not a test suite.
 
 ```sh
 npm install
-npm test          # builds first: the probe tests assert on the built artefact
+npx playwright install chromium   # for test/run.test.ts
 npm run typecheck
+npm test          # builds first: the probe tests assert on the built artefact
 ```
 
 The tests use fixtures, never a live site. `test/fixtures/*.html` carry seeded
 faults — a glued boundary, a dangling fragment, a colour pair 0.02 under the
 threshold — and each check is asserted to find exactly those and nothing else.
+The probes run in jsdom, which has no layout and no canvas, so the colour
+normalisation is not exercised there. `test/run.test.ts` runs the whole
+runner in Chromium against `test/fixtures/site`, a three-page site served
+from the test, with one fault of each kind, a clipped layer that must not
+count as overflow and a smooth-scrolling page that must; it is skipped, with
+the reason, when Chromium cannot launch.
 
 MIT licensed.

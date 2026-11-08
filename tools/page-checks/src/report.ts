@@ -68,12 +68,15 @@ function summarise(check: CheckName, failures: Finding[]): string {
       }`;
     case "overflow":
       return `${failures.length} page/width combination${
-        failures.length === 1 ? "" : "s"
-      } scroll sideways`;
+        failures.length === 1 ? " scrolls" : "s scroll"
+      } sideways`;
     case "console":
-      return `${failures.length} distinct console error${
-        failures.length === 1 ? "" : "s"
-      } on ${occurrences} page${occurrences === 1 ? "" : "s"}`;
+      // A count is the pages one error was seen on. Summed over several
+      // errors it would count a page once per error, so it is only given
+      // for one.
+      return failures.length === 1
+        ? `1 distinct console error on ${occurrences} page${occurrences === 1 ? "" : "s"}`
+        : `${failures.length} distinct console errors`;
     default:
       return `${failures.length} broken link${failures.length === 1 ? "" : "s"}`;
   }

@@ -35,9 +35,9 @@ export interface GlueOptions {
    */
   sides?: "both" | "close";
   /**
-   * Literal two-or-more character sequences that are intentional and must not
-   * be reported — `"</em>-"` for a hyphenated compound, `"al<em>go</em>"` for
-   * intra-word emphasis. Matched against the reported text, not a regex.
+   * Literal sequences that are intentional and must not be reported —
+   * `"<em>re</em>entrant"` for intra-word emphasis. A boundary inside any
+   * occurrence of one in the HTML is skipped. Literal text, not a regex.
    */
   allow?: string[];
 }

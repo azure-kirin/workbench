@@ -97,7 +97,7 @@ export async function runChecks(config: Config): Promise<Report> {
               findings.push({
                 check: "links",
                 where: route,
-                message: `HTTP `,
+                message: `HTTP ${status}`,
               });
             await page.close();
             continue;
@@ -174,7 +174,7 @@ export async function runChecks(config: Config): Promise<Report> {
       notes.push({
         check: "links",
         message:
-          `${report.checked} internal links followed` +
+          `${report.checked} internal link${report.checked === 1 ? "" : "s"} followed` +
           (report.unverifiedAnchors
             ? `, ${report.unverifiedAnchors} anchors into unrendered pages not verified`
             : ""),
@@ -244,7 +244,10 @@ export async function runChecks(config: Config): Promise<Report> {
             : undefined,
       });
     if (!consoleGroups.size)
-      notes.push({ check: "console", message: `no errors on ${rendered} pages` });
+      notes.push({
+        check: "console",
+        message: `no errors on ${rendered} page${rendered === 1 ? "" : "s"}`,
+      });
   }
 
   return {

@@ -16,15 +16,37 @@ import type { TextSample } from "./contrast.js";
  * `scrollWidth - clientWidth` is the obvious measurement and it is wrong on
  * any page using `overflow-x: clip`, which reports overflowing content that
  * cannot be scrolled to — the whole reason to use `clip` instead of `hidden`.
- * That produced a standing false positive on every page of the site this came
- * from. Asking the document to scroll and reading back how far it went is the
- * only measurement that matches what a reader can do.
+ *
+ * Asking the document to scroll is not enough on its own either. `clip` (or
+ * `hidden`) on the root, or on the body when the root leaves it `visible`, is
+ * carried to the viewport, where it is `hidden` — and a hidden viewport still
+ * scrolls when a script asks, though no reader can. So the viewport's own
+ * overflow is read first, and a hidden one scores zero.
+ *
+ * Then the document is asked to scroll as far right as it goes, and the
+ * distance it reached is the answer. `behavior: "instant"`, because under
+ * `html { scroll-behavior: smooth }` a bare scrollTo starts an animation and
+ * reads back 0.
  */
 export function probeScrollableOverflow(): number {
+  var root = getComputedStyle(document.documentElement).overflowX;
+  var carried =
+    root === "visible" && document.body
+      ? getComputedStyle(document.body).overflowX
+      : root;
+  if (carried === "hidden" || carried === "clip") return 0;
+
   var before = window.scrollY;
-  window.scrollTo(1e6, before);
+  var jump = function (left: number): void {
+    try {
+      window.scrollTo({ left: left, top: before, behavior: "instant" as ScrollBehavior });
+    } catch (e) {
+      window.scrollTo(left, before);
+    }
+  };
+  jump(1e6);
   var reached = Math.round(window.scrollX);
-  window.scrollTo(0, before);
+  jump(0);
   return Math.abs(reached);
 }
 
@@ -121,10 +143,12 @@ export function probeTextSamples(): TextSample[] {
       tag === "SCRIPT" ||
       tag === "STYLE" ||
       tag === "NOSCRIPT" ||
-      tag === "TEMPLATE" ||
-      tag === "SVG"
+      tag === "TEMPLATE"
     )
       continue;
+    // SVG text is painted by `fill`, not `color`, so `color` says nothing
+    // about it. Skip the whole subtree, not only the <svg> element.
+    if (element.closest("svg")) continue;
     if (element.getAttribute("aria-hidden") === "true") continue;
 
     var text = "";

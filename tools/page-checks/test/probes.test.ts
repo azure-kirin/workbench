@@ -61,6 +61,11 @@ describe("probeTextSamples", () => {
     expect(onPhoto?.paintedBackdrop).toBe(true);
   });
 
+  it("leaves SVG text alone, since fill paints it and color says nothing", () => {
+    const inSvg = probeTextSamples().find((s) => s.text.startsWith("SVG text"));
+    expect(inSvg).toBeUndefined();
+  });
+
   it("feeds the analysis end to end, and the fixture's faults come back out", () => {
     const result = analyseSamples(
       probeTextSamples().map((s) => ({ ...s, route: "/" })),
@@ -80,7 +85,10 @@ describe("the probes are self-contained", () => {
    * so this asserts on the built artifact, not on the source.
    */
   it("compiles and runs with nothing but page globals in scope", async () => {
-    const built = await import("../dist/index.js");
+    /* Through a variable, so the type checker does not need dist/ to exist —
+       `npm run typecheck` runs before any build. */
+    const entry = "../dist/index.js";
+    const built = (await import(/* @vite-ignore */ entry)) as typeof import("../src/index.js");
     for (const name of [
       "probeScrollableOverflow",
       "probeScrollThrough",

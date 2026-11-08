@@ -85,6 +85,15 @@ describe("formatReport", () => {
     expect(text).toContain("×12");
   });
 
+  it("does not add up pages across distinct console errors", () => {
+    const error = (message: string) => ({ check: "console" as const, where: "/", message, count: 1 });
+    expect(formatReport(report({ findings: [error("a")] }), false)).toContain(
+      "1 distinct console error on 1 page",
+    );
+    const two = formatReport(report({ findings: [error("a"), error("b")] }), false);
+    expect(two).toContain("2 distinct console errors\n");
+  });
+
   it("keeps the note visible even when the check failed", () => {
     const text = formatReport(
       report({

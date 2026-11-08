@@ -1,7 +1,7 @@
 {
   "name": "page-checks",
   "version": "0.1.0",
-  "description": "Four build-time checks against a built site: swallowed whitespace after inline elements, WCAG contrast for every colour pair a page actually renders, real horizontal scroll, console errors, and internal links and anchors that resolve.",
+  "description": "Five build-time checks against a built site: swallowed whitespace after inline elements, WCAG contrast for every colour pair a page actually renders, real horizontal scroll, console errors, and internal links and anchors that resolve.",
   "keywords": [
     "accessibility",
     "wcag",
