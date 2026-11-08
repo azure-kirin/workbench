@@ -1,0 +1,10 @@
+node_modules/
+dist/
+*.tsbuildinfo
+
+# No lockfile is committed: this package is a leaf in a repository whose
+# package manager is decided at the root, and a stray npm lock here would
+# fight whatever that turns out to be.
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
