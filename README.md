@@ -33,6 +33,14 @@ the animation rather than being required to undo it, and a reader that does not
 run scripts gets a finished page. No dependencies, optional React entry, ESM
 only, 52 tests.
 
+**[`packages/target-scroll`](./packages/target-scroll)** — scrolls the page
+to an element by hand, because both native ways fail without a word: in
+Chromium `overflow-x: clip` turns a smooth `scrollIntoView` into nothing, and
+a hash link is inert once the hash already matches. Every frame is an instant
+scroll, a watchdog jumps to the target when `requestAnimationFrame` never
+ticks, and the reader's own wheel, touch or scroll key ends it. No
+dependencies, optional React entry, ESM only, 62 tests.
+
 **[`packages/storybook-test-only-plays`](./packages/storybook-test-only-plays)**
 — Storybook runs a story's `play` every time the story opens, so a person
 opening a page watches its test click and type. This Vite plugin cuts every
@@ -48,9 +56,8 @@ names what moved on its own, with masks for the loops that are meant to. The
 README is the failure log it was built from: plays, font swaps, popups taking
 focus, late content, late toasts.
 
-Two more packages — an interruptible scroll-to-target, and a set of build-time
-page checks — are on branches, and land here once each has a README that says
-plainly what it will not do.
+A set of build-time page checks is on a branch, and lands here once its README
+says plainly what it will not do.
 
 ## Development
 
