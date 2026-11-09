@@ -70,7 +70,7 @@ node ~/workbench/tools/self-motion/self-motion.mjs --static storybook-static   #
 node ~/workbench/tools/self-motion/self-motion.mjs --viewport phone 'button--*' card--gallery
 ```
 
-Installed as a dev dependency (`file:` or from a registry) it is also
+Installed as a dev dependency by path (`file:`; it is not on npm) it is also
 available as `npx self-motion`.
 
 In CI, watch a static build, not the dev server: `storybook build --quiet &&

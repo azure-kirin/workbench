@@ -89,8 +89,12 @@ gives you.
 
 ## Install
 
+It is not on npm yet. Until it is, build it from this repository and depend
+on it by path:
+
 ```sh
-npm install viewport-reveal
+cd workbench/packages/viewport-reveal && npm install && npm run build
+cd your-app && npm install ../workbench/packages/viewport-reveal
 ```
 
 React is an optional peer dependency; the core has no dependencies at all.
