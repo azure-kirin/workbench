@@ -1,7 +1,7 @@
 {
   "name": "target-scroll",
   "version": "0.1.0",
-  "description": "Hand-animated scroll to an element that survives overflow-x:clip, repeat activation on the same target, a suspended requestAnimationFrame, and a user who scrolls back.",
+  "description": "Hand-animated scroll to an element that scrolls on every activation, survives html { scroll-behavior: smooth } and a suspended requestAnimationFrame, and gives way to a user who scrolls back.",
   "keywords": [
     "scroll",
     "scroll-to",

@@ -34,12 +34,13 @@ run scripts gets a finished page. No dependencies, optional React entry, ESM
 only, 52 tests.
 
 **[`packages/target-scroll`](./packages/target-scroll)** — scrolls the page
-to an element by hand, because both native ways fail without a word: in
-Chromium `overflow-x: clip` turns a smooth `scrollIntoView` into nothing, and
-a hash link is inert once the hash already matches. Every frame is an instant
-scroll, a watchdog jumps to the target when `requestAnimationFrame` never
-ticks, and the reader's own wheel, touch or scroll key ends it. No
-dependencies, optional React entry, ESM only, 62 tests.
+to an element with an animation of its own. Every activation scrolls,
+including a second click on the section the URL already names, where a nav
+that writes `location.hash` gets nothing. Every frame is an instant scroll,
+so `html { scroll-behavior: smooth }` cannot make the page trail the loop; a
+watchdog jumps to the target when `requestAnimationFrame` never ticks; and
+the reader's own wheel, touch or scroll key ends it. No dependencies,
+optional React entry, ESM only, 62 tests.
 
 **[`packages/storybook-test-only-plays`](./packages/storybook-test-only-plays)**
 — Storybook runs a story's `play` every time the story opens, so a person
