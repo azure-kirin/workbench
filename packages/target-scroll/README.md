@@ -1,44 +1,35 @@
 # target-scroll
 
-Scroll the page to an element, by hand, because the platform's two ways of
-doing it both fail in production.
+Scroll the page to an element with an animation of its own, and the
+defences an animation of its own needs.
 
 This is a short animation loop and a great deal of defence. The animation
 part is unremarkable and there are a dozen libraries that do it. What is
-different here is what happens when a stylesheet has quietly disabled native
-smooth scrolling, when the reader clicks the same nav item twice, when
-`requestAnimationFrame` never runs, and when the reader takes the wheel back
-mid-flight — four situations in which the obvious implementation does nothing
-at all, and does it silently.
+different here is what happens when the reader clicks the same nav item
+twice, when `requestAnimationFrame` never runs, when the reader takes the
+wheel back mid-flight, and when the page sets `html { scroll-behavior:
+smooth }` — four situations in which the obvious hand-written version does
+nothing, fights the reader, or arrives late, and does it silently.
 
 ---
 
 ## The problem
 
-### 1. Native smooth scrolling is disabled by a property set for unrelated reasons
+### 1. Setting the hash it already has does nothing
 
-`element.scrollIntoView({ behavior: "smooth" })` and
-`window.scrollTo({ top, behavior: "smooth" })` are the correct calls, and in
-Chromium they do nothing when `<html>` — or any element in the scroll chain —
-has `overflow-x: clip`. The call returns normally. No exception, no warning,
-no partial movement. The page simply stays where it is.
+The usual hand-written nav handler scrolls by writing the fragment:
+`location.hash = "#work"`. The first time, that navigates. The second time
+the fragment already is `#work`, and the setter returns without doing
+anything. That is the specification, not a bug: the `Location` `hash` setter
+stops when the new fragment equals the current one, a bailout kept for pages
+that set `location.hash` on every scroll. No scroll, no `hashchange`, no
+error. In Playwright's Chromium 158, 151 and 133 and its WebKit 27.2 the
+page stays where it is.
 
-`overflow-x: clip` is not an exotic property. It is what you reach for to stop
-a decorative layer, an off-canvas panel or a wide figure from widening the
-document, and it is recommended over `overflow-x: hidden` precisely because it
-does not create a scroll container. The interaction is invisible: the person
-who adds the clip is not the person debugging the nav a month later, and the
-symptom — "the anchor links jump instead of gliding" — sounds like a design
-regression rather than a broken API.
-
-Every frame here is an ordinary instant scroll, so there is no native smooth
-scroll to be disabled.
-
-### 2. A hash link goes inert once the hash already matches
-
-`<a href="#work">` navigates the first time. The second time, the fragment
-already is `#work`, there is nothing to navigate to, and the browser does
-nothing — correctly, by the specification.
+The bailout belongs to that setter alone. A plain `<a href="#work">` clicked
+again, `location.href = "#work"` and `location.assign("#work")` all navigate
+to the fragment again and scroll back to the target. The dead click comes
+from script that writes the hash.
 
 Watch someone use a single-page nav and you will see them click the item they
 are already "on". They read the section, scrolled past it, and want to go
@@ -46,9 +37,10 @@ back; the nav item is the affordance for that, and it is dead at exactly the
 moment they lean on it hardest. Nothing is broken enough to report, so it
 never gets reported.
 
-Nothing in this library reads `location.hash`. Every activation scrolls.
+Nothing in this library scrolls by writing `location.hash`. Every activation
+scrolls.
 
-### 3. `requestAnimationFrame` does not necessarily tick
+### 2. `requestAnimationFrame` does not necessarily tick
 
 An animation loop assumes frames happen. They do not always:
 
@@ -70,7 +62,7 @@ the first frame lands in about 16ms and the watchdog never fires; where rAF is
 suspended the reader gets an instant jump, which is worse than an animation
 and enormously better than nothing.
 
-### 4. The reader's own scroll has to win
+### 3. The reader's own scroll has to win
 
 Once an animation owns the scroll position, a wheel event fights it: the
 reader scrolls up, the animation writes the position back down, and the page
@@ -81,15 +73,18 @@ A `wheel`, a `touchstart` or a scrolling key (up and down arrows, page
 up/down, home, end, space — unless the reader is typing in a field) ends the
 animation immediately, wherever it has got to.
 
-### And three smaller ones
+### 4. `html { scroll-behavior: smooth }` turns every frame into its own animation
 
-**`html { scroll-behavior: smooth }` turns every frame into its own
-animation.** That line is added to *improve* anchor links, and it applies to
-every programmatic scroll on the page, including the sixty this library
-performs per second. Each frame would start a fresh browser-side animation
-toward a target the next frame moves again; the page crawls and arrives late,
-or does not arrive. Every scroll here passes `behavior: "instant"` to opt out
-of the CSS property for that call.
+That line is added to *improve* anchor links, and it applies to every
+programmatic scroll on the page that does not say otherwise, including the
+sixty a second an animation loop performs. Each frame starts a fresh
+browser-side smooth scroll toward a position the next frame moves again, so
+the page trails the loop and arrives after it has finished. A 400ms loop to
+6000px was 345px short when it ended in WebKit 27.2 and 2px short in
+Chromium 158; both caught up within a second. Every scroll here passes
+`behavior: "instant"`, which opts that call out of the CSS property.
+
+### And two smaller ones
 
 **The URL and the Back button.** Pointing the fragment at the target is
 right — the address bar should describe where the reader asked to go. Doing it with
@@ -106,6 +101,29 @@ keyboard: they land in the new section visually, press Tab, and are taken back
 to the link they came from. Focus is moved explicitly here — with
 `preventScroll`, since focusing an element scrolls it into view and would
 teleport the page the instant the animation started.
+
+### What about `overflow-x: clip`?
+
+This package used to open by saying that in Chromium `overflow-x: clip` on
+`<html>` turns a smooth `scrollIntoView` or `scrollTo` into nothing. That was
+seen on one site, in an older Chromium, and was never reduced to a test case.
+It could not be reproduced in Chromium 158, 151 or 133 (Playwright's builds,
+headless, at a desktop window and under Pixel 7 emulation). With `clip` on
+the x axis or on both, on `<html>`, on `<body>`, on both, or on an ancestor
+that is not the root; with `scroll-behavior: smooth` or `overflow-y: auto`
+beside it; on a `<body>` under `html { overflow: hidden }`; with the target
+in a `position: sticky` or a `contain` box; and inside a scroll container that
+is not the viewport — a smooth `scrollIntoView` and a smooth `scrollTo`
+animated to the target every time. The specification agrees: on the
+viewport, `clip` is read as `hidden`, and a programmatic scroll goes through
+`hidden`.
+
+The nearest thing that did fail is a different property.
+`html, body { overflow-x: hidden; height: 100% }` makes `<body>` the scroll
+container, and `window.scrollTo` then does nothing, smooth or not, while
+`scrollIntoView` scrolls the body. `clip` does not do that, which is why it
+is the property to reach for. This library fails there too, because it
+scrolls only the window (see What it will not do).
 
 ---
 
@@ -447,10 +465,10 @@ and the media query.
 Three things are asserted less directly than they should be, and are worth
 knowing when reading the suite:
 
-- **The `overflow-x: clip` bug cannot be reproduced here.** It is a real
-  browser's layout behaviour and jsdom has neither. What the tests can pin is
-  the consequence: no code path asks for a native smooth scroll, and every
-  scroll performed is asserted to carry `behavior: "instant"`.
+- **`html { scroll-behavior: smooth }` is not applied,** because jsdom has
+  no CSS scrolling to apply it to. What the tests pin is the call: no code
+  path asks for a native smooth scroll, and every scroll performed is
+  asserted to carry `behavior: "instant"`.
 - **`preventScroll` is asserted as an argument, not as an effect,** because
   focusing an element in jsdom does not scroll anything in the first place.
 - **A suspended `requestAnimationFrame` is simulated,** by a queue that nothing

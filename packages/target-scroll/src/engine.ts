@@ -2,21 +2,20 @@
  * The motion layer: everything between "we know the y coordinate" and "the
  * page is there".
  *
- * It exists because the two native paths are both unreliable in ways that
- * only show up in production:
+ * Two things shape it:
  *
- * 1. `scrollIntoView({ behavior: "smooth" })` and `scrollTo({ behavior:
- *    "smooth" })` are silently defeated in Chromium when `<html>` (or any
- *    scroll-chain ancestor) has `overflow-x: clip` — a property pages set
- *    for entirely unrelated reasons, like keeping a decorative layer from
- *    widening the document. The call returns, nothing moves, no error.
+ * 1. `html { scroll-behavior: smooth }` applies to every programmatic scroll
+ *    that does not say otherwise, so a loop of plain per-frame scrolls would
+ *    start a browser-side smooth scroll on every frame and trail behind
+ *    itself. Every scroll here asks for `behavior: "instant"`. (The README's
+ *    note on `overflow-x: clip` says why that is no longer listed here.)
  *
  * 2. `requestAnimationFrame` does not necessarily tick. It is suspended in
  *    embedded webviews (in-app browsers), under battery-saver modes, and in
  *    background tabs. A hand-rolled animation that assumes rAF will run has
  *    a failure mode where the click simply does nothing — see the watchdog.
  *
- * So the scroll is animated by hand, and every frame is a plain instant
+ * The scroll is animated by hand, and every frame is a plain instant
  * scroll. What the module owns beyond that is the cancellation contract:
  * exactly one animation may be in flight, and the user's own scroll always
  * ends it.

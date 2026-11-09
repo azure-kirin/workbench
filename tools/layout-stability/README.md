@@ -31,7 +31,7 @@ node ~/workbench/tools/layout-stability/layout-stability.mjs chats-requests  # o
 node ~/workbench/tools/layout-stability/layout-stability.mjs --config scripts/layout-audits.mjs --base-url http://localhost:6008
 ```
 
-Installed as a dev dependency (`file:` or from a registry) it is also available as `npx layout-stability`.
+Installed as a dev dependency by path (`file:`; it is not on npm) it is also available as `npx layout-stability`.
 
 ## Registry
 

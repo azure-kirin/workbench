@@ -59,9 +59,15 @@ Docs pages already render their stories without plays unless a story sets
 
 ## Install
 
+It is not on npm yet. Until it is, build it from this repository and install
+it by path:
+
 ```sh
-npm install --save-dev storybook-test-only-plays
+cd workbench/packages/storybook-test-only-plays && npm install && npm run build
+cd your-storybook && npm install --save-dev ../workbench/packages/storybook-test-only-plays
 ```
+
+Vite is a peer dependency, the one your Storybook already runs on.
 
 ```ts
 // .storybook/main.ts
