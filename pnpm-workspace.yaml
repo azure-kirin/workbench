@@ -1,0 +1,6 @@
+packages:
+  - "packages/*"
+
+# esbuild (via tsup and vite) ships a postinstall that checks its platform binary.
+allowBuilds:
+  esbuild: true

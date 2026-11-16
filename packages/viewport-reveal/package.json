@@ -1,0 +1,73 @@
+{
+  "name": "viewport-reveal",
+  "version": "0.1.0",
+  "description": "Scroll entrance that survives no-JS, slow hydration, fast scrolling and background tabs — the markup stays visible and JavaScript opts into the animation.",
+  "keywords": [
+    "scroll",
+    "animation",
+    "reveal",
+    "entrance",
+    "progressive-enhancement",
+    "no-js",
+    "ssr",
+    "hydration",
+    "accessibility",
+    "prefers-reduced-motion",
+    "react",
+    "css"
+  ],
+  "license": "MIT",
+  "author": "Mariia Bubley",
+  "type": "module",
+  "sideEffects": [
+    "./styles.css"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./react": {
+      "types": "./dist/react.d.ts",
+      "import": "./dist/react.js"
+    },
+    "./styles.css": "./styles.css",
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "styles.css",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.2",
+    "@types/react-dom": "^19.0.2",
+    "jsdom": "^25.0.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vitest": "^2.1.8"
+  }
+}

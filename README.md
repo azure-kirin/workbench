@@ -1,0 +1,99 @@
+# workbench
+
+A scroll entrance is four lines of CSS until you notice that the `opacity: 0` it
+starts from is what a search crawler sees, that it cannot begin until the
+framework has hydrated, that an `IntersectionObserver` can be outrun by a fast
+flick, and that `requestAnimationFrame` is frozen while a tab is in the
+background. Each of those leaves part of the page permanently blank, in
+production, for someone who will not report it.
+
+The interesting part of a small front-end primitive is never the effect. It is
+the list of conditions under which the obvious implementation quietly does
+nothing. This repository holds primitives and tools built against those lists,
+with each list kept in its README, and the notes on how I work with coding
+agents.
+
+The same is true one level up. A coding agent starts every session knowing
+nothing — not who decides what, not where the spec lives, not that the approach
+it is about to take was tried and rejected last month — and the parts you forget
+to tell it are the parts that come back wrong.
+
+## Packages
+
+**[`packages/viewport-reveal`](./packages/viewport-reveal)** — content fades and
+rises as it comes into view. Nothing is hidden in the markup: the hidden state
+lives behind a class set by a blocking inline script, so JavaScript opts *into*
+the animation rather than being required to undo it, and a reader that does not
+run scripts gets a finished page. No dependencies, optional React entry, ESM
+only, 52 tests.
+
+**[`packages/target-scroll`](./packages/target-scroll)** — scrolls the page
+to an element with an animation of its own. Every activation scrolls,
+including a second click on the section the URL already names, where a nav
+that writes `location.hash` gets nothing. Every frame is an instant scroll,
+so `html { scroll-behavior: smooth }` cannot make the page trail the loop; a
+watchdog jumps to the target when `requestAnimationFrame` never ticks; and
+the reader's own wheel, touch or scroll key ends it. No dependencies,
+optional React entry, ESM only, 62 tests.
+
+**[`packages/storybook-test-only-plays`](./packages/storybook-test-only-plays)**
+— Storybook runs a story's `play` every time the story opens, so a person
+opening a page watches its test click and type. This Vite plugin cuts every
+play from the story files outside Vitest, so the dev server and every build
+open still, while `@storybook/addon-vitest` keeps them; a play it cannot cut
+stops the build. ESM, typed, tested on CSF 3 and CSF factories fixtures and on
+real Vite builds.
+
+## Tools
+
+**[`tools/layout-stability`](./tools/layout-stability)** — UI jitter is chrome
+that moves when it shouldn't: a search bar that changes width when a filter
+turns on, rows that squeeze when a bar appears, a header that stays collapsed
+after leaving a mode. The eye catches it only in motion. This tool drives a
+page or a Storybook story in headless Chromium, measures named anchors,
+performs each action, and measures again during the action and after undoing
+it, so state that leaks past an undo fails too. It prints per-axis pixel
+deltas and exits 1 on any, so it gates CI.
+
+**[`tools/self-motion`](./tools/self-motion)** — opens every story a Storybook
+lists, at each viewport, and watches it for three seconds without touching it:
+scroll, focus, layout shifts, boxes, animations still running, pixels. It
+names what moved on its own, with masks for the loops that are meant to. The
+README is the failure log it was built from: plays, font swaps, popups taking
+focus, late content, late toasts.
+
+**[`tools/page-checks`](./tools/page-checks)** — five checks against a built
+site, each written down after it had gone wrong: a space swallowed at an
+inline tag in the served HTML, contrast for every colour pair a page actually
+renders, sideways scroll a reader can actually perform, console errors, and
+internal links and fragments that resolve. One binary, one exit code, and
+every check prints what it skipped. The README keeps the two checks that were
+cut, and why.
+
+## How I work with coding agents
+
+**[`docs/`](./docs)** — eight working notes. A four-layer context system
+(vault, `CLAUDE.md`, memory, skills) and the protocols that run on top of it:
+leaving an agent working unattended overnight, turning a locked spec into an
+enumerated state space, driving a design tool through its plugin API, porting a
+prototype in either direction, auditing the whole setup when a new model lands,
+and shipping motion assets. Most of it reads as a failure log, because that is
+how it was learned. The product in the examples is invented; the failures are
+not.
+
+## Development
+
+pnpm workspace, Node 22. The three packages are workspace members:
+
+```sh
+pnpm install
+pnpm -r test        # each package builds first, then runs vitest
+pnpm -r typecheck   # after a build: some tests import the built output
+```
+
+The tools under `tools/` are not workspace members: they run from the project
+they check, with Playwright resolved from that project. Each one tests on its
+own with `npm install && npm test` in its folder (`tools/self-motion` with
+`node --test`, `tools/page-checks` with vitest).
+
+MIT licensed.

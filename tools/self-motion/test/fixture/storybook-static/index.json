@@ -1,0 +1,16 @@
+{
+  "v": 5,
+  "entries": {
+    "fixture--docs": { "type": "docs", "id": "fixture--docs", "name": "Docs", "title": "Fixture", "importPath": "./fixture.mdx", "tags": ["dev"] },
+    "fixture--still": { "type": "story", "subtype": "story", "id": "fixture--still", "name": "Still", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--spinner": { "type": "story", "subtype": "story", "id": "fixture--spinner", "name": "Spinner", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--scrolls": { "type": "story", "subtype": "story", "id": "fixture--scrolls", "name": "Scrolls", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--late-focus": { "type": "story", "subtype": "story", "id": "fixture--late-focus", "name": "Late focus", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--late-content": { "type": "story", "subtype": "story", "id": "fixture--late-content", "name": "Late content", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--toast": { "type": "story", "subtype": "story", "id": "fixture--toast", "name": "Toast", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--entrance": { "type": "story", "subtype": "story", "id": "fixture--entrance", "name": "Entrance", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--play": { "type": "story", "subtype": "story", "id": "fixture--play", "name": "Play", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev", "play-fn"] },
+    "fixture--drift": { "type": "story", "subtype": "story", "id": "fixture--drift", "name": "Drift", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["dev"] },
+    "fixture--rig": { "type": "story", "subtype": "story", "id": "fixture--rig", "name": "Rig", "title": "Fixture", "importPath": "./fixture.stories.js", "tags": ["test"] }
+  }
+}

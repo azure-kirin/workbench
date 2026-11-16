@@ -1,0 +1,11 @@
+{
+  "name": "@workbench/layout-stability",
+  "version": "0.1.0",
+  "description": "Measures UI jitter: anchor bounding boxes across interactive state changes and after undo, reported as per-axis px deltas. Exit 1 on violations.",
+  "type": "module",
+  "license": "MIT",
+  "bin": { "layout-stability": "./layout-stability.mjs" },
+  "files": ["layout-stability.mjs", "README.md"],
+  "peerDependencies": { "playwright": ">=1.40" },
+  "engines": { "node": ">=22" }
+}

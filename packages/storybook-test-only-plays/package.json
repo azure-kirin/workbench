@@ -1,0 +1,57 @@
+{
+  "name": "storybook-test-only-plays",
+  "version": "0.1.0",
+  "description": "A Vite plugin that cuts every Storybook play function outside Vitest, so a story a person opens never runs its interaction test while @storybook/addon-vitest runs keep them.",
+  "keywords": [
+    "storybook",
+    "play",
+    "play-function",
+    "interaction-testing",
+    "vitest",
+    "addon-vitest",
+    "vite",
+    "vite-plugin",
+    "csf"
+  ],
+  "license": "MIT",
+  "author": "Mariia Bubley",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20.19"
+  },
+  "peerDependencies": {
+    "vite": ">=5"
+  },
+  "dependencies": {
+    "@babel/parser": "^7.29.0",
+    "magic-string": "^0.30.17"
+  },
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "pretest": "npm run build",
+    "test": "vitest run",
+    "prepublishOnly": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.7.2",
+    "vite": "^8.3.5",
+    "vitest": "^3.2.4"
+  }
+}

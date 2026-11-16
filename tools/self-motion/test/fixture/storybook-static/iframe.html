@@ -1,0 +1,71 @@
+<!doctype html>
+<!--
+  Not Storybook: the four things the watch reads from a Storybook preview —
+  ?id= in the URL, #storybook-root, window.__STORYBOOK_PREVIEW__.currentRender
+  (phase, story.playFunction) and the sb-show-errordisplay class — with one
+  small scenario per story id. Each scenario moves (or holds still) after the
+  render reaches "finished", which is when the watch begins.
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>fixture</title>
+    <style>
+      body { margin: 0; font: 16px/1.5 sans-serif; background: #fff; color: #111; }
+      #storybook-root { padding: 16px; }
+      p { margin: 0 0 8px; }
+      .spinner { width: 24px; height: 24px; border: 3px solid #111; border-right-color: transparent; border-radius: 50%; animation: turn 0.8s linear infinite; }
+      .entrance { animation: rise 5s ease-out both; }
+      .tall { height: 3000px; }
+      .toast { position: fixed; right: 16px; bottom: 16px; padding: 12px; background: #111; color: #fff; }
+      @keyframes turn { to { rotate: 1turn; } }
+      @keyframes rise { from { translate: 0 40px; opacity: 0; } }
+    </style>
+  </head>
+  <body>
+    <div id="storybook-root"></div>
+    <script>
+      const id = new URLSearchParams(location.search).get("id");
+      const root = document.getElementById("storybook-root");
+      const render = { phase: "rendering", story: { playFunction: undefined } };
+      window.__STORYBOOK_PREVIEW__ = { currentRender: render };
+      const later = (ms, fn) => setTimeout(fn, ms);
+      const content = '<header><h1>Title</h1></header><main><p>First line of content.</p><p>Second line.</p><button>Action</button></main>';
+
+      const scenarios = {
+        "fixture--still": () => { root.innerHTML = content; },
+        "fixture--spinner": () => { root.innerHTML = content + '<div class="spinner" role="status" aria-label="Loading"></div>'; },
+        "fixture--scrolls": () => {
+          root.innerHTML = '<div class="tall">' + content + '</div>';
+          later(400, () => window.scrollTo(0, 600));
+        },
+        "fixture--late-focus": () => {
+          root.innerHTML = content;
+          later(400, () => root.querySelector("button").focus());
+        },
+        "fixture--late-content": () => {
+          root.innerHTML = content;
+          later(400, () => root.querySelector("main").insertAdjacentHTML("afterbegin", '<p>A count that arrived late: 12</p><p>and pushed everything down.</p>'));
+        },
+        "fixture--toast": () => {
+          root.innerHTML = content;
+          later(400, () => document.body.insertAdjacentHTML("beforeend", '<div class="toast" role="status">Saved</div>'));
+        },
+        "fixture--entrance": () => { root.innerHTML = '<div class="entrance">' + content + '</div>'; },
+        "fixture--play": () => {
+          root.innerHTML = content;
+          render.story.playFunction = async () => {};
+        },
+        "fixture--drift": () => {
+          root.innerHTML = '<div class="backdrop" style="height:120px"></div>' + content;
+          const backdrop = root.querySelector(".backdrop");
+          let hue = 0;
+          setInterval(() => { hue = (hue + 40) % 360; backdrop.style.background = `hsl(${hue} 70% 60%)`; }, 100);
+        },
+      };
+
+      (scenarios[id] ?? (() => document.body.classList.add("sb-show-errordisplay")))();
+      requestAnimationFrame(() => requestAnimationFrame(() => { render.phase = "finished"; }));
+    </script>
+  </body>
+</html>

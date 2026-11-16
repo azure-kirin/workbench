@@ -1,0 +1,103 @@
+/*
+ * viewport-reveal — the entire stylesheet.
+ *
+ * ── The gate ──────────────────────────────────────────────────────────────
+ * Every hidden state below is behind `html.vr-js`, a class the inline engine
+ * adds synchronously before the first `[data-reveal]` element paints. That
+ * inversion is the point of the library: the markup is visible by default
+ * and JavaScript opts INTO the animation, instead of the markup shipping
+ * `opacity: 0` and JavaScript being required to undo it. A crawler, a
+ * reader-mode pass, a JS-off visitor, or a page whose hydration has stalled
+ * never meets an invisible block.
+ *
+ * ── Overriding ────────────────────────────────────────────────────────────
+ * The four knobs are read as `var(--name, default)` with the default written
+ * at each use site, and are deliberately NOT declared in a `:root` block
+ * here. A `:root` declaration in this file would have the same specificity
+ * as a `:root` declaration in yours, which makes the winner depend on the
+ * order your bundler happens to concatenate stylesheets in — a real source
+ * of "it works locally, not in the build". Written as fallbacks, any
+ * declaration anywhere wins, at any scope: `:root` for the whole page, or a
+ * section to give one part of the page its own rhythm.
+ *
+ *   --vr-duration   220ms                          one element's travel
+ *   --vr-distance   12px                           how far it rises
+ *   --vr-easing     cubic-bezier(.22, 1, .36, 1)   entrance curve
+ *   --vr-stagger    60ms                           one step of stagger()
+ *
+ * --vr-delay is per-element and is written by the component's `delay` prop;
+ * you would not normally set it by hand.
+ *
+ * ── No blur ───────────────────────────────────────────────────────────────
+ * The entrance is opacity + a short rise, and nothing else. A blur filter on
+ * text is both the most expensive thing a compositor can be asked to do and
+ * the one thing that makes copy unreadable for exactly as long as it plays.
+ */
+
+html.vr-js [data-reveal] {
+  opacity: 0;
+  transform: translateY(var(--vr-distance, 12px));
+}
+
+html.vr-js [data-reveal].vr-revealed {
+  opacity: 1;
+  transform: none;
+  transition:
+    opacity var(--vr-duration, 220ms) var(--vr-easing, cubic-bezier(0.22, 1, 0.36, 1))
+      var(--vr-delay, 0ms),
+    transform var(--vr-duration, 220ms) var(--vr-easing, cubic-bezier(0.22, 1, 0.36, 1))
+      var(--vr-delay, 0ms);
+}
+
+/*
+ * Mount variant — for content inserted after load into a dialog, an overlay
+ * or a portal, where "scrolled into view" has no meaning and the engine's
+ * sweep would never fire. Pure CSS: it plays on insertion and needs no
+ * JavaScript beyond the gate class.
+ */
+@keyframes vr-reveal-in {
+  from {
+    opacity: 0;
+    transform: translateY(var(--vr-distance, 12px));
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+html.vr-js [data-reveal-mount] {
+  animation: vr-reveal-in var(--vr-duration, 220ms)
+    var(--vr-easing, cubic-bezier(0.22, 1, 0.36, 1)) var(--vr-delay, 0ms) both;
+}
+
+/*
+ * Reduced motion: no animation at all, not a faster one. The engine already
+ * declines to add `vr-js` when the preference is set, so this only catches
+ * the preference being flipped after load — but that path is real (OS
+ * setting changed in another window) and it must not leave content hidden.
+ */
+@media (prefers-reduced-motion: reduce) {
+  html.vr-js [data-reveal],
+  html.vr-js [data-reveal-mount] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+    animation: none;
+  }
+}
+
+/*
+ * Nothing may print blank because its entrance never fired. Print styles run
+ * against whatever state the DOM is in, and everything below the fold is
+ * still hidden at that moment.
+ */
+@media print {
+  html.vr-js [data-reveal],
+  html.vr-js [data-reveal-mount] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+  }
+}
